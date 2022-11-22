@@ -7,6 +7,9 @@ import {
 import ScrollToTop from './util/ScrollToTop'
 import Home from './components/Home';
 import Navigation from './components/Navigation';
+import Login from './components/authComponents/Login';
+import Register from './components/authComponents/Register';
+
 
 function App() {
   return (
