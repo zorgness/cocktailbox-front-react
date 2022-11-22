@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import ScrollToTop from './util/ScrollToTop'
+import ScrollToTop from './utils/ScrollToTop'
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Login from './components/authComponents/Login';
