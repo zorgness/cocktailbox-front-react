@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -16,10 +17,18 @@ import Favorites from './components/Favorites';
 
 function App() {
 
+  const [name, setName] = useState("")
+
+  const handleSearch = (name) => {
+    setName(name)
+  }
+
+  console.log(name)
+
   return (
 
       <div>
-        <Navigation />
+        <Navigation handleSearch={handleSearch}  />
           <BrowserRouter>
             <ScrollToTop >
               <Routes>
