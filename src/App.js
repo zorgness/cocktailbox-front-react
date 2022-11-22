@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Login from './components/authComponents/Login';
 import Register from './components/authComponents/Register';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
