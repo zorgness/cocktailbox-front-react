@@ -11,8 +11,8 @@ import Login from './components/authComponents/Login';
 import Register from './components/authComponents/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
+
   return (
 
       <div>
@@ -27,9 +27,6 @@ function App() {
               </ScrollToTop>
           </BrowserRouter>
       </div>
-
-
-
   );
 }
 
