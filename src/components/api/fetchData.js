@@ -12,9 +12,9 @@ export const fetchDataByName = name => {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
   return fetch(url, init)
     .then(response => response.json())
-    .then(json => {
-      if (json.data.drinks.length > 0) {
-        return json.data.results[0]
+    .then(data => {
+      if (data.drinks.length > 0) {
+        return data.drinks
       } else {
         return Promise.reject(
           new Error(`Aucun Cocktail trouvé avec le nom "${name}"`),
@@ -32,9 +32,9 @@ export const fetchDataById = id => {
   const url = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
   return fetch(url, init)
     .then(response => response.json())
-    .then(json => {
-      if (json.data.drinks.length > 0) {
-        return json.data.results[0]
+    .then(data => {
+      if (data.drinks.length > 0) {
+        return data.drinks
       } else {
         return Promise.reject(
           new Error(`Aucun Cocktail trouvé avec l'id "${id}"`),
@@ -50,9 +50,9 @@ export const fetchDataByIngredient = ingredient => {
   const url = `www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}`
   return fetch(url, init)
     .then(response => response.json())
-    .then(json => {
-      if (json.data.drinks.length > 0) {
-        return json.data.results[0]
+    .then(data => {
+      if (data.drinks.length > 0) {
+        return data.drinks
       } else {
         return Promise.reject(
           new Error(`Aucun Cocktail trouvé avec l'ingredient "${ingredient}"`),

@@ -60,3 +60,12 @@ export const useFindCocktailByIngredient= (ingredient) => {
 
   return {data, error, status}
 }
+
+export const ErrorDisplay = ({error}) => {
+  return (
+    <div style={{color: 'red'}}>
+      Une erreur est survenue lors de la recherche du Cocktail detail :{' '}
+      <pre style={{color: 'grey'}}> Détail : {error.message}</pre>
+    </div>
+  )
+}

@@ -1,9 +1,18 @@
-import React, {useState} from 'react'
+import React from 'react'
+import CocktailsContainer from './CocktailsContainer'
 
-const Home = () => {
+const Home = ({name}) => {
+
 
   return (
-    <div>Home</div>
+
+    <div>
+
+      <h1>Home</h1>
+
+      <CocktailsContainer name={name} />
+
+    </div>
   )
 }
 

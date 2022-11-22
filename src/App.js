@@ -23,8 +23,6 @@ function App() {
     setName(name)
   }
 
-  console.log(name)
-
   return (
 
       <div>
@@ -32,7 +30,7 @@ function App() {
           <BrowserRouter>
             <ScrollToTop >
               <Routes>
-                <Route path="/" element={<Home />}/>
+                <Route path="/" element={<Home name={name}/>}/>
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
 
