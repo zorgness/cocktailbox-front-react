@@ -1,5 +1,5 @@
 import React from 'react'
-import CocktailsContainer from './CocktailsContainer'
+import CocktailsContainer from './cocktailComponents/CocktailsContainer'
 
 const Home = ({name}) => {
 
@@ -7,8 +7,6 @@ const Home = ({name}) => {
   return (
 
     <div>
-
-      <h1>Home</h1>
 
       <CocktailsContainer name={name} />
 

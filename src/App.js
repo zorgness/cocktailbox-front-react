@@ -13,6 +13,7 @@ import Login from './components/authComponents/Login';
 import Register from './components/authComponents/Register';
 import RequireAuth from './components/authComponents/RequireAuth';
 import Favorites from './components/Favorites';
+import Cocktail from './components/cocktailComponents/Cocktail';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/" element={<Home name={name}/>}/>
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/cocktail/:id' element={<Cocktail />} />
 
                 <Route element={<RequireAuth />}>
                   <Route path='/favorites/:id' element={<Favorites />} />

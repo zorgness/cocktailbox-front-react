@@ -1,4 +1,5 @@
-import { useFindCocktailByName } from '../customHooks/actions/fetchDataAction'
+import { useFindCocktailByName } from '../../customHooks/actions/fetchDataAction'
+import Cocktails from './Cocktails'
 
 const CocktailsContainer = ({name}) => {
 
@@ -9,12 +10,11 @@ const CocktailsContainer = ({name}) => {
   if (status === 'fail') {
     throw error
   } else if (status === 'idle') {
-    return 'enter un nom de Coktail'
+    return 'enter un nom de Cocktail'
   } else if (status === 'fetching') {
     return 'chargement en cours ...'
   } else if (status === 'done') {
-    console.log(data)
-    return "done"
+    return <Cocktails data={data} />
   }
 }
 
