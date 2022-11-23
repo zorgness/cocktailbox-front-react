@@ -1,8 +1,12 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+import Like from './Like'
 
 const Cocktail = ({data}) => {
 
-  const {strDrink, strGlass, strDrinkThumb, strInstructions } = data[0]
+  const {idDrink, strDrink, strGlass, strDrinkThumb, strInstructions } = data[0]
+
+  const location = useLocation()
 
   // Get all ingredients not null
   const ingredients = [];
@@ -22,6 +26,8 @@ const Cocktail = ({data}) => {
     <div className="text-center">
               <h2>{strDrink}</h2>
               <p>{strGlass}</p>
+
+              <Like idDrink={idDrink} liked={location.state.liked}/>
 
       <div className="d-flex flex-wrap justify-content-around align-items-center">
               <img src={strDrinkThumb} className="img-fluid m-3 rounded" style={{maxWidth: '320px', height:'auto'}} alt={strDrink} />

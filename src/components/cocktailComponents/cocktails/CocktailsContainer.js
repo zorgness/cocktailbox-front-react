@@ -8,18 +8,18 @@ import { fetchData } from '../../../api/fetchData'
 
 const CocktailsContainer = ({name, authData}) => {
 
-  // console.log(authData?.userData?.likes)
-
   const [userLikes, setUserLikes] = useState([])
 
   useEffect(() => {
-    authData?.userData?.likes.forEach(element => {
-      const urlMain = process.env.REACT_APP_URL_MAIN
-      fetchData(urlMain + element)
-      .then(res => {
-        setUserLikes(prev => [...prev, res.idDrink])
-      })
-    });
+
+        authData?.userData?.likes.forEach(element => {
+          const urlMain = process.env.REACT_APP_URL_MAIN
+          fetchData(urlMain + element)
+          .then(res => {
+            setUserLikes(prev => [...prev, res])
+
+          })
+        });
   }, [authData?.userData?.likes.length])
 
 
@@ -34,7 +34,7 @@ const CocktailsContainer = ({name, authData}) => {
   } else if (status === 'fetching') {
     return <Loader />
   } else if (status === 'done') {
-    return <Cocktails data={data} userLikes={userLikes} />
+    return <Cocktails data={data} userLikes={userLikes}  />
   }
 }
 

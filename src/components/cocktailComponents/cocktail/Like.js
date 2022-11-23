@@ -4,18 +4,19 @@ import { userLikeAttempt, userLikeDestroy } from '../../../redux/actions/likeAct
 import emptyHeart from '../../../images/icons/heart-empty.png'
 import fullHeart from '../../../images/icons/heart-full.png'
 
-const Like = ({idDrink, authData, likeData, like, unLike, liked}) => {
+const Like = ({idDrink, authData, likeData, like, unLike, liked, dataLike}) => {
 
   const [isLiked, setIsLiked] = useState(liked)
   const userId = localStorage.getItem('userId')
 
+  console.log(dataLike?.id)
   const handleClick = () => {
     setIsLiked(!isLiked)
     if(!isLiked) {
       const options = {account: `/api/users/${userId}`, idDrink: idDrink}
       like(options)
     } else {
-      unLike(likeData?.data?.id)
+      unLike(dataLike?.id)
      }
   }
 
@@ -25,6 +26,7 @@ const Like = ({idDrink, authData, likeData, like, unLike, liked}) => {
 
     userId &&
     <div>
+    <p>{dataLike?.id}</p>
       <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
     </div>
   )
