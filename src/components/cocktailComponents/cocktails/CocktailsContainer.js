@@ -1,7 +1,7 @@
 import { useFindCocktailByName, ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
 import Cocktails from './Cocktails'
 import HomePage from '../../HomePage'
-import Loader from '../../../Loader'
+import Loader from '../../Loader'
 
 const CocktailsContainer = ({name}) => {
 

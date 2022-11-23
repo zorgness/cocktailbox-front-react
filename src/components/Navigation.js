@@ -14,15 +14,20 @@ const Navigation = ({handleSearch}) => {
       <Container>
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className=""
             navbarScroll
+
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link className="mx-3" href="/">Home</Nav.Link>
+            <Nav.Link className="mx-3" href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
-            <Search handleSearch={handleSearch} />
+            <div className='mx-5'>
+              <Search handleSearch={handleSearch} />
+            </div>
 
           </Nav>
+
+
 
         </Navbar.Collapse>
       </Container>

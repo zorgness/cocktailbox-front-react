@@ -51,7 +51,7 @@ const Cocktail = ({data}) => {
         </div>
 
           <div className="mt-5 text-center">
-            <p className="m-5">${strInstructions }</p>
+            <p className="m-5">{strInstructions}</p>
           </div>
 
      </div>
