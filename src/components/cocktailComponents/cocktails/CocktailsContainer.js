@@ -1,9 +1,27 @@
+import React, {useState, useEffect} from 'react'
 import { useFindCocktailByName, ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
 import Cocktails from './Cocktails'
 import HomePage from '../../HomePage'
 import Loader from '../../Loader'
+import { connect } from 'react-redux'
+import { fetchData } from '../../../api/fetchData'
 
 const CocktailsContainer = ({name, authData}) => {
+
+  // console.log(authData?.userData?.likes)
+
+  const [userLikes, setUserLikes] = useState([])
+
+  useEffect(() => {
+    authData?.userData?.likes.forEach(element => {
+      const urlMain = process.env.REACT_APP_URL_MAIN
+      fetchData(urlMain + element)
+      .then(res => {
+        setUserLikes(prev => [...prev, res.idDrink])
+      })
+    });
+  }, [authData?.userData?.likes.length])
+
 
   const state = useFindCocktailByName(name)
 
@@ -16,8 +34,15 @@ const CocktailsContainer = ({name, authData}) => {
   } else if (status === 'fetching') {
     return <Loader />
   } else if (status === 'done') {
-    return <Cocktails data={data} />
+    return <Cocktails data={data} userLikes={userLikes} />
   }
 }
 
-export default CocktailsContainer
+const mapStateToProps = state => {
+
+  return {
+    authData: state.auth
+  }
+}
+
+export default connect(mapStateToProps, null)(CocktailsContainer)

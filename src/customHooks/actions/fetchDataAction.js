@@ -2,6 +2,7 @@ import * as React from 'react'
 import { dataReducer } from '../reducers/dataReducer'
 import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
 import { fetchDataWithMethod } from '../../api/fetchDataWithMethod'
+import { fetchData } from '../../api/fetchData'
 
 const useFetchData = () => {
 
@@ -84,4 +85,17 @@ export const ErrorDisplay = ({error}) => {
       <pre style={{color: 'grey'}}> Détail : {error.message}</pre>
     </div>
   )
+}
+
+export const useFindCocktailLikes = (id)=> {
+  const {data, error, status, execute} = useFetchData()
+  React.useEffect(() => {
+    if(!id) {
+      return
+    }
+    const urlMain = process.env.REACT_APP_URL_MAIN
+    execute(fetchData(urlMain + id))
+  }, [id, execute])
+
+  return {data, error, status}
 }

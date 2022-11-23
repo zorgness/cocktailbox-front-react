@@ -3,8 +3,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
 import Like from './Like';
 
+const CocktailCard = ({cocktail, liked}) => {
 
-const CocktailCard = ({cocktail}) => {
 
   const {idDrink, strDrink, strDrinkThumb, strGlass, strCategory, strAlcoholic} = cocktail
 
@@ -16,7 +16,7 @@ const CocktailCard = ({cocktail}) => {
       <Card style={{ width: '18rem' }}>
         <div className='rounded-top' style={imgStyles}>
           <div className='text-end m-1'>
-            <Like idDrink={idDrink}/>
+            <Like idDrink={idDrink} liked={liked}/>
           </div>
         </div>
         <Card.Body>
@@ -32,5 +32,6 @@ const CocktailCard = ({cocktail}) => {
 
   )
 }
+
 
 export default CocktailCard
