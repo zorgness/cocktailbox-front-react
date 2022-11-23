@@ -1,9 +1,16 @@
+import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Search from './Search';
 
-const Navigation = ({handleSearch}) => {
+const Navigation = ({authData, logout, handleSearch}) => {
+
+  const handleLogout = () => {
+    logout()
+    localStorage.removeItem('user')
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -19,8 +26,20 @@ const Navigation = ({handleSearch}) => {
 
           >
             <Nav.Link className="mx-3" href="/">Home</Nav.Link>
-            <Nav.Link className="mx-3" href="/register">Register</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            {
+              authData.isAuthenticated
+              ?
+                <Fragment>
+                  <Nav.Link className='mx-3' onClick={handleLogout}>Logout</Nav.Link>
+
+                </Fragment>
+              :
+                <Fragment>
+                  <Nav.Link href="/register" className='mx-3'>Register</Nav.Link>
+                  <Nav.Link href="/login" className='mx-3'>Login</Nav.Link>
+                </Fragment>
+            }
+
             <div className='mx-5'>
               <Search handleSearch={handleSearch} />
             </div>

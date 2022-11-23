@@ -1,8 +1,10 @@
 import React from 'react'
+import { capitalize } from '../utils/capitalize'
 
-const HomePage = () => {
+const HomePage = ({authData}) => {
   return (
-    <div>Welcome</div>
+
+    <h1>Welcome {capitalize(authData?.userData?.username)}</h1>
   )
 }
 

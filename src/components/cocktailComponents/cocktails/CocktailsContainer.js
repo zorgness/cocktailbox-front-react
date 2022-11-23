@@ -3,7 +3,7 @@ import Cocktails from './Cocktails'
 import HomePage from '../../HomePage'
 import Loader from '../../Loader'
 
-const CocktailsContainer = ({name}) => {
+const CocktailsContainer = ({name, authData}) => {
 
   const state = useFindCocktailByName(name)
 
@@ -12,7 +12,7 @@ const CocktailsContainer = ({name}) => {
   if (status === 'fail') {
     return <ErrorDisplay error={error}/>
   } else if (status === 'idle') {
-    return <HomePage />
+    return <HomePage authData={authData} />
   } else if (status === 'fetching') {
     return <Loader />
   } else if (status === 'done') {

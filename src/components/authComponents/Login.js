@@ -25,16 +25,13 @@ const Login = ({authData, auth, closeModal}) => {
     e.preventDefault();
     const options = {email: email, password: password }
     auth(options)
-    console.log(state)
-
   };
 
   const handleCloseModal = () => {
-
     closeModal()
-    navigate('/dashboard')
-
+    navigate('/')
   }
+
   return (
     <div className="index-item">
 

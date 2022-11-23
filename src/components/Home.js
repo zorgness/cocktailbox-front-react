@@ -1,14 +1,13 @@
 import React from 'react'
 import CocktailsContainer from './cocktailComponents/cocktails/CocktailsContainer'
 
-const Home = ({name}) => {
-
+const Home = ({name, authData}) => {
 
   return (
 
     <div>
 
-      <CocktailsContainer name={name} />
+      <CocktailsContainer name={name} authData={authData} />
 
     </div>
   )
