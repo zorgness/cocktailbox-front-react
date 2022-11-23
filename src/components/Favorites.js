@@ -1,9 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const Favorites = () => {
+const Favorites = ({authData}) => {
+  console.log(authData?.userData?.likes)
+
   return (
     <div>Favorites</div>
   )
 }
 
-export default Favorites
+const mapStateToProps = (state) => {
+  return {
+    authData: state.auth
+  }
+}
+
+export default connect(mapStateToProps, null)(Favorites)

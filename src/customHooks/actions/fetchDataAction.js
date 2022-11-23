@@ -87,7 +87,7 @@ export const ErrorDisplay = ({error}) => {
   )
 }
 
-export const useFindCocktailLikes = (id)=> {
+export const useFindUserLikes = (id) => {
   const {data, error, status, execute} = useFetchData()
   React.useEffect(() => {
     if(!id) {
