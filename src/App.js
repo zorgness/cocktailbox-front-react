@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -18,7 +18,7 @@ import Favorites from './components/Favorites';
 import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
 
 
-function App() {
+function App({authData, logout, setId, fetchProfile}) {
 
   const [name, setName] = useState("")
   const navigate = useNavigate()
@@ -28,10 +28,21 @@ function App() {
     navigate('/')
   }
 
+  const userId = window.localStorage.getItem('userId');
+
+  useEffect(() => {
+
+    if (userId) {
+      setId(userId);
+      fetchProfile(userId)
+    }
+  }, [userId, setId, fetchProfile]);
+
+
   return (
 
             <ScrollToTop >
-            <Navigation handleSearch={handleSearch}  />
+            <Navigation handleSearch={handleSearch} authData={authData} logout={logout}   />
               <Routes>
                 <Route path="/" element={<Home name={name}/>}/>
                 <Route path='/login' element={<Login />} />
