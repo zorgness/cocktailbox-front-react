@@ -37,7 +37,7 @@ export const likeDestroyError = error => {
   }
 }
 
-export const useLikeAttempt = options => {
+export const userLikeAttempt = options => {
   return(dispatch) => {
     return fetchDataWithMethod(likeUrl, 'POST', options)
     .then((res) => {
@@ -48,9 +48,10 @@ export const useLikeAttempt = options => {
   }
 };
 
-export const useLikeDestroy = id => {
+export const userLikeDestroy = id => {
   return(dispatch) => {
-    return fetchDataWithMethod(likeUrl, 'DELETE', id)
+    const options = {}
+    return fetchDataWithMethod(likeUrl + '/' + id, 'DELETE', options)
     .then((res) => {
       dispatch(likeDestroySuccess(res))
     }).catch((err) => {
