@@ -16,7 +16,7 @@ const CocktailCard = ({cocktail}) => {
       <Card style={{ width: '18rem' }}>
         <div className='rounded-top' style={imgStyles}>
           <div className='text-end m-1'>
-            <Like />
+            <Like idDrink={idDrink}/>
           </div>
         </div>
         <Card.Body>
@@ -26,7 +26,7 @@ const CocktailCard = ({cocktail}) => {
               <Card.Text>{strAlcoholic}</Card.Text>
               <Card.Text>{strGlass}</Card.Text>
 
-          <Link to={`/cocktail/${idDrink}`} variant="primary">see more...</Link>
+          <Link to={`/cocktail/${idDrink}`} className="btn btn-primary">see more...</Link>
         </Card.Body>
       </Card>
 

@@ -2,9 +2,10 @@ import React, {useState}  from 'react'
 import emptyHeart from '../../../images/icons/heart-empty.png'
 import fullHeart from '../../../images/icons/heart-full.png'
 
-const Like = () => {
+const Like = ({idDrink}) => {
 
   const [isLiked, setIsLiked] = useState(false)
+  const userId = localStorage.getItem('userId')
 
   const handleClick = () => {
     setIsLiked(!isLiked)
