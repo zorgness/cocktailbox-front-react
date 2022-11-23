@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -14,22 +13,26 @@ import Register from './components/authComponents/Register';
 import RequireAuth from './components/authComponents/RequireAuth';
 import Favorites from './components/Favorites';
 import Cocktail from './components/cocktailComponents/Cocktail';
+import {useNavigate} from 'react-router-dom';
 
 
 function App() {
 
   const [name, setName] = useState("")
+  const navigate = useNavigate()
 
   const handleSearch = (name) => {
     setName(name)
+    navigate('/')
   }
 
   return (
 
-      <div>
-        <Navigation handleSearch={handleSearch}  />
-          <BrowserRouter>
+
+
+
             <ScrollToTop >
+            <Navigation handleSearch={handleSearch}  />
               <Routes>
                 <Route path="/" element={<Home name={name}/>}/>
                 <Route path='/login' element={<Login />} />
@@ -42,8 +45,8 @@ function App() {
 
               </Routes>
             </ScrollToTop>
-          </BrowserRouter>
-      </div>
+
+
   );
 }
 
