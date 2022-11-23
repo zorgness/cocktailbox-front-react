@@ -29,7 +29,7 @@ export const fetchDataByName = name => {
 }
 
 export const fetchDataById = id => {
-  const url = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
   return fetch(url, init)
     .then(response => response.json())
     .then(data => {
@@ -37,7 +37,7 @@ export const fetchDataById = id => {
         return data.drinks
       } else {
         return Promise.reject(
-          new Error(`Aucun Cocktail trouvé avec l'id "${id}"`),
+          new Error(`Pas de Cocktail trouvé avec l'id "${id}"`),
         )
       } // ERROR DU JSON()
     })
@@ -47,7 +47,7 @@ export const fetchDataById = id => {
 }
 
 export const fetchDataByIngredient = ingredient => {
-  const url = `www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}`
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}`
   return fetch(url, init)
     .then(response => response.json())
     .then(data => {
