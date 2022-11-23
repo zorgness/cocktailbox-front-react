@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { dataReducer } from '../reducers/dataReducer'
 import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
+import { fetchDataWithMethod } from '../../api/fetchDataWithMethod'
 
 const useFetchData = () => {
 
@@ -59,6 +60,21 @@ export const useFindCocktailByIngredient= (ingredient) => {
   }, [ingredient,execute])
 
   return {data, error, status}
+}
+
+export const useLikeCocktail = (userId, idDrink) => {
+  const {data, error, status, execute} = useFetchData()
+  React.useEffect(() => {
+    if(!userId && !idDrink) {
+      return
+    }
+    const urlMain = process.env.REACT_APP_URL_MAIN
+    const options = {account: `/api/users/${userId}`, idDrink: idDrink}
+    execute(fetchDataWithMethod(urlMain + '/api/likes', 'POST', options))
+  }, [userId, idDrink, execute])
+
+  return {data, error, status}
+
 }
 
 export const ErrorDisplay = ({error}) => {

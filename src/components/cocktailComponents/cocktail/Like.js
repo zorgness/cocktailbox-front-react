@@ -15,7 +15,7 @@ const Like = ({idDrink}) => {
 
   return (
 
-    <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
+    userId && <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
   )
 }
 
