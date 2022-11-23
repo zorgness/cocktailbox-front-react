@@ -1,5 +1,5 @@
 import React from 'react'
-import CocktailCard from './CocktailCard'
+import CocktailCard from '../cocktail/CocktailCard'
 
 const Cocktails = ({data}) => {
 

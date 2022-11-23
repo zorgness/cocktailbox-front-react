@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Routes,
   Route,
+  useNavigate
 } from "react-router-dom";
 import ScrollToTop from './utils/ScrollToTop'
 import Home from './components/Home';
@@ -12,8 +13,7 @@ import Login from './components/authComponents/Login';
 import Register from './components/authComponents/Register';
 import RequireAuth from './components/authComponents/RequireAuth';
 import Favorites from './components/Favorites';
-import Cocktail from './components/cocktailComponents/Cocktail';
-import {useNavigate} from 'react-router-dom';
+import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
 
 
 function App() {
@@ -28,16 +28,13 @@ function App() {
 
   return (
 
-
-
-
             <ScrollToTop >
             <Navigation handleSearch={handleSearch}  />
               <Routes>
                 <Route path="/" element={<Home name={name}/>}/>
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/cocktail/:id' element={<Cocktail />} />
+                <Route path='/cocktail/:id' element={<CocktailContainer />} />
 
                 <Route element={<RequireAuth />}>
                   <Route path='/favorites/:id' element={<Favorites />} />
@@ -45,7 +42,6 @@ function App() {
 
               </Routes>
             </ScrollToTop>
-
 
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import CocktailsContainer from './cocktailComponents/CocktailsContainer'
+import CocktailsContainer from './cocktailComponents/cocktails/CocktailsContainer'
 
 const Home = ({name}) => {
 

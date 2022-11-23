@@ -1,4 +1,4 @@
-import { useFindCocktailByName } from '../../customHooks/actions/fetchDataAction'
+import { useFindCocktailByName, ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
 import Cocktails from './Cocktails'
 
 const CocktailsContainer = ({name}) => {
@@ -8,7 +8,7 @@ const CocktailsContainer = ({name}) => {
   const {data , error, status} = state
 
   if (status === 'fail') {
-    throw error
+    return <ErrorDisplay error={error}/>
   } else if (status === 'idle') {
     return 'enter un nom de Cocktail'
   } else if (status === 'fetching') {
