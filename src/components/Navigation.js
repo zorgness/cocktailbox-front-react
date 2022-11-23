@@ -11,6 +11,8 @@ const Navigation = ({authData, logout, handleSearch}) => {
     localStorage.removeItem('user')
   }
 
+  const userId = localStorage.getItem('userId')
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -30,8 +32,8 @@ const Navigation = ({authData, logout, handleSearch}) => {
               authData.isAuthenticated
               ?
                 <Fragment>
+                  <Nav.Link href={`/favorites/${userId}`} className='mx-3'>Favoris</Nav.Link>
                   <Nav.Link className='mx-3' onClick={handleLogout}>Logout</Nav.Link>
-
                 </Fragment>
               :
                 <Fragment>

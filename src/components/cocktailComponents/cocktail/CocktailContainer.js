@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useFindCocktailById } from '../../../customHooks/actions/fetchDataAction'
 import Cocktail from './Cocktail'
 import { ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
+import Loader from '../../Loader'
 
 const CocktailContainer = () => {
 
@@ -15,7 +16,7 @@ const CocktailContainer = () => {
   } else if (status === 'idle') {
     return 'pas de résultat'
   } else if (status === 'fetching') {
-    return 'chargement en cours ...'
+    return <Loader />
   } else if (status === 'done') {
     return <Cocktail data={data} />
   }
