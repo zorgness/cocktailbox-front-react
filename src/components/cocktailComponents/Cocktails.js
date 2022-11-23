@@ -8,7 +8,7 @@ const Cocktails = ({data}) => {
 
       {
         data.map((cocktail) => {
-          return <CocktailCard cocktail={cocktail} />
+          return <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
         })
       }
 
