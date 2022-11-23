@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { dataReducer } from '../reducers/dataReducer'
-import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchData'
+import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
 
 const useFetchData = () => {
 

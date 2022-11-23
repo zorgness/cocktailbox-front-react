@@ -1,5 +1,7 @@
 import { useFindCocktailByName, ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
 import Cocktails from './Cocktails'
+import HomePage from '../../HomePage'
+import Loader from '../../../Loader'
 
 const CocktailsContainer = ({name}) => {
 
@@ -10,9 +12,9 @@ const CocktailsContainer = ({name}) => {
   if (status === 'fail') {
     return <ErrorDisplay error={error}/>
   } else if (status === 'idle') {
-    return 'enter un nom de Cocktail'
+    return <HomePage />
   } else if (status === 'fetching') {
-    return 'chargement en cours ...'
+    return <Loader />
   } else if (status === 'done') {
     return <Cocktails data={data} />
   }
