@@ -11,10 +11,12 @@ const CommentsContainer = ({comments, idDrink, name}) => {
    : toast.success(`Votre commentaire est ${type} !`)
 
 
+
   return (
     <div className='wrapper'>
-    <ToastContainer />
+      <ToastContainer />
         <div className='comment-column d-flex flex-column  gap-3'>
+            <pre>{comments.length} commentaire{comments.length < 1 ? 's' : '' }</pre>
             {
               comments?.map((comment, index) => {
                 return <Comment key={index} comment={comment} notify={notify} />
