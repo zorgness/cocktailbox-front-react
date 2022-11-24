@@ -14,7 +14,7 @@ import Navigation from './components/Navigation';
 import Login from './components/authComponents/Login';
 import RegisterContainer from './components/authComponents/RegisterContainer';
 import RequireAuth from './components/authComponents/RequireAuth';
-import FavoritesContainer from './components/FavoritesContainer';
+import FavoritesContainer from './components/favorites/FavoritesContainer';
 import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
 
 

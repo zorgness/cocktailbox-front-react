@@ -17,8 +17,6 @@ const Cocktails = ({cocktails}) => {
     return tmp
   }
 
-  console.log(data)
-
   return (
     <div className='d-flex justify-content-around flex-wrap gap-5'>
 
