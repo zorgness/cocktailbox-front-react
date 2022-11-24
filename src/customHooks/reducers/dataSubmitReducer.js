@@ -20,7 +20,7 @@ export const dataSubmitReducer = (state, action) =>  {
   else if (action.type === "done") {
     return {
       ...state,
-      state: initialRegisterValue
+      state: state
 
     };
   }

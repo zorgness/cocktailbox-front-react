@@ -12,7 +12,6 @@ const Comment = ({comment}) => {
         <h4>Comment by: {data?.username}</h4>
         <pre>rating: {rating}</pre>
         <p>{content}</p>
-        <button>edit</button>
         <button>delete</button>
     </div>
   )
