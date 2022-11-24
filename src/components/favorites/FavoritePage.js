@@ -1,10 +1,10 @@
 import React from 'react'
-import Loader from '../Loader'
 
 const FavoritePage = () => {
   return (
     <div>
-      <h1>Aucun favoris pour le moment</h1>
+
+      <h1 className='m-3'>Aucun favoris pour le moment</h1>
 
     </div>
   )
