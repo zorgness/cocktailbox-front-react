@@ -5,7 +5,7 @@ import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction';
 import { userDestroyComment } from '../../redux/actions/commentAction';
 import Button from 'react-bootstrap/Button';
 
-const Comment = ({comment, destroyComment}) => {
+const Comment = ({comment, destroyComment, notify}) => {
 
   const userId = localStorage.getItem('userId')
   const { id, account, content, rating } = comment
@@ -13,19 +13,26 @@ const Comment = ({comment, destroyComment}) => {
 
   const posterId = data?.['@id'].split('/')[3]
 
+  const handleDestroy = () => {
+    destroyComment(id)
+    notify('effacé')
+  }
+
   return (
-    <div className='border border-dark'>
-        <h4>Comment by: {data?.username}</h4>
-        <Rating rating={rating} />
-        <p>{content}</p>
-        {
-          userId === posterId
-          &&  <Button
-                variant="danger"
-                onClick={() =>  destroyComment(id)}>
-                Delete
-              </Button>
-        }
+    <div className='m-3'>
+      <div className='rounded bg-white text-dark p-2'>
+          <h4>Comment by: {data?.username}</h4>
+          <Rating rating={rating} />
+          <p>{content}</p>
+          {
+            userId === posterId
+            &&  <Button
+                  variant="danger"
+                  onClick={handleDestroy}>
+                  Delete
+                </Button>
+          }
+      </div>
     </div>
   )
 }

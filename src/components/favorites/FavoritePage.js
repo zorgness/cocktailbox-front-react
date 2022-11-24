@@ -1,8 +1,12 @@
 import React from 'react'
+import Loader from '../Loader'
 
 const FavoritePage = () => {
   return (
-    <div>your favorites</div>
+    <div>
+      <h1>Aucun favoris pour le moment</h1>
+
+    </div>
   )
 }
 

@@ -18,7 +18,7 @@ const Cocktails = ({cocktails}) => {
   }
 
   return (
-    <div className='d-flex justify-content-around flex-wrap gap-5'>
+    <div className='d-flex justify-content-around flex-wrap gap-5 m-5'>
 
       {
         cocktails.map((cocktail) => {

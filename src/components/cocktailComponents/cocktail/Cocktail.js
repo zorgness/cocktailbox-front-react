@@ -27,7 +27,7 @@ const Cocktail = ({data}) => {
 
   return (
 
-    <div className="text-center">
+    <div className="text-center mt-5">
               <h2>{strDrink}</h2>
               <p>{strGlass}</p>
 
@@ -73,7 +73,7 @@ const Cocktail = ({data}) => {
           }
 
           {
-            state?.status === 'done' && <CommentsContainer idDrink={idDrink} comments={state?.data?.["hydra:member"]}/>
+            state?.status === 'done' && <CommentsContainer idDrink={idDrink} name={strDrink} comments={state?.data?.["hydra:member"]}/>
           }
 
 

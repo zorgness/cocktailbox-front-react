@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer';
 import { userSendComment } from '../../redux/actions/commentAction'
 
-const CommentForm = ({idCocktail, send, commentData}) => {
+const CommentForm = ({idCocktail, send, name, commentData, notify}) => {
 
   const userId = localStorage.getItem('userId');
 
@@ -27,6 +27,7 @@ const CommentForm = ({idCocktail, send, commentData}) => {
     }
     console.log(state)
     send(state)
+    notify('envoyé')
   }
 
   const ratingOptions = [5,4,3,2,1].map((level, index) => {
@@ -44,7 +45,7 @@ const CommentForm = ({idCocktail, send, commentData}) => {
 
   return (
     <div className="container">
-      <h3>Donnez votre avis sur "cocktail name"</h3>
+      <h3>Donnez votre avis sur {name}</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label></Form.Label>
@@ -65,7 +66,7 @@ const CommentForm = ({idCocktail, send, commentData}) => {
 
         <Form.Group>
           <div className="rating-container">
-            <div className="rating-box-title">rate please</div>
+            <div className="rating-box-title">Give your rating please</div>
             <div className="rating-box">
                 { ratingOptions }
             </div>
@@ -73,7 +74,7 @@ const CommentForm = ({idCocktail, send, commentData}) => {
         </Form.Group>
 
         <Form.Group>
-          <Button type='submit' variant="primary">Submit</Button>
+          <Button type='submit' variant="success">Submit</Button>
         </Form.Group>
       </Form>
     </div>
