@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Like from './Like'
-import Loader from '../../Loader'
 import CommentsContainer from '../../comments/CommentsContainer'
 import { useCommentsByCocktailId } from '../../../customHooks/actions/fetchDataAction'
 
@@ -67,10 +66,6 @@ const Cocktail = ({data}) => {
             <p className="m-5">{strInstructions}</p>
           </div>
 
-          {
-            state?.status === 'fetching' && <Loader />
-
-          }
 
           {
             state?.status === 'done' && <CommentsContainer idDrink={idDrink} name={strDrink} comments={state?.data?.["hydra:member"]}/>

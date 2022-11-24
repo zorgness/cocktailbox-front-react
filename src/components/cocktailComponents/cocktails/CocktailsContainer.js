@@ -2,7 +2,6 @@ import React from 'react'
 import { useFindCocktailByName, ErrorDisplay } from '../../../customHooks/actions/fetchDataAction'
 import Cocktails from './Cocktails'
 import HomePage from '../../HomePage'
-import Loader from '../../Loader'
 import { connect } from 'react-redux'
 
 const CocktailsContainer = ({name, authData}) => {
@@ -16,7 +15,7 @@ const CocktailsContainer = ({name, authData}) => {
   } else if (status === 'idle') {
     return <HomePage authData={authData} />
   } else if (status === 'fetching') {
-    return <Loader />
+    return null
   } else if (status === 'done') {
     return <Cocktails cocktails={data} />
   }
