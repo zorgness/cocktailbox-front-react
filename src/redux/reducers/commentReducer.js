@@ -34,7 +34,7 @@ const commentReducer =  (state=initialState, action) => {
             error: action.error
           }
       default:
-        break;
+        return state
     }
 }
 

@@ -1,4 +1,3 @@
-import { fetchData } from "../../api/fetchData";
 import { fetchDataWithMethod } from "../../api/fetchDataWithMethod";
 import {
   COMMENT_SEND_SUCCESS,

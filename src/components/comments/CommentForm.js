@@ -1,15 +1,16 @@
 import React, {useReducer, Fragment} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux'
 import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer';
+import { userSendComment } from '../../redux/actions/commentAction'
 
-
-const CommentForm = ({idCocktail}) => {
+const CommentForm = ({idCocktail, send, commentData}) => {
 
   const userId = localStorage.getItem('userId');
 
   const initialState = {
-    account: userId,
+    account: `/api/users/${userId}`,
     content: "",
     rating: 0,
     idDrink: idCocktail
@@ -24,7 +25,7 @@ const CommentForm = ({idCocktail}) => {
     if(content.length < 5) {
       return
     }
-    console.log(state)
+    send(state)
   }
 
   const ratingOptions = [5,4,3,2,1].map((level, index) => {
@@ -78,4 +79,16 @@ const CommentForm = ({idCocktail}) => {
   )
 }
 
-export default CommentForm
+const mapStateToProps = (state) => {
+  return {
+    commentData: state.comment
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    send: options => dispatch(userSendComment(options))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(CommentForm)
