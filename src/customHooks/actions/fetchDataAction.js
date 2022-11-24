@@ -2,6 +2,7 @@ import * as React from 'react'
 import { dataReducer } from '../reducers/dataReducer'
 import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
 import { fetchDataWithMethod } from '../../api/fetchDataWithMethod'
+import { fetchData } from '../../api/fetchData'
 import { fetchLikesByUserId } from '../../api/fetchLikesData'
 
 const useFetchData = () => {
@@ -97,4 +98,34 @@ export const useFindUserLikes = (userId) => {
   }, [userId, execute])
 
   return {data, error, status}
+}
+
+
+export const useCommentsByCocktailId = idDrink => {
+  const {data, error, status, execute} = useFetchData()
+  React.useEffect(() => {
+    if(!idDrink) {
+      return
+    }
+    const urlMain = process.env.REACT_APP_URL_MAIN
+    execute(fetchData(urlMain + "/api/comments?idDrink=" + idDrink))
+  }, [idDrink, execute])
+
+  return {data, error, status}
+
+}
+
+
+export const useFindCommentOwner = userId => {
+  const {data, error, status, execute} = useFetchData()
+  React.useEffect(() => {
+    if(!userId) {
+      return
+    }
+    const urlMain = process.env.REACT_APP_URL_MAIN
+    execute(fetchData(urlMain + userId))
+  }, [userId, execute])
+
+  return {data, error, status}
+
 }

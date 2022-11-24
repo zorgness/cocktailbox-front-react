@@ -1,21 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Like from './Like'
+import Loader from '../../Loader'
 import CommentsContainer from '../../comments/CommentsContainer'
+import { useCommentsByCocktailId } from '../../../customHooks/actions/fetchDataAction'
 
 const Cocktail = ({data}) => {
 
   const {idDrink, strDrink, strGlass, strDrinkThumb, strInstructions } = data[0]
 
   const location = useLocation()
-
-  const [comments, setComments] = useState([])
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/comments?idDrink=1100')
-    .then(res => res.json())
-    .then(data => setComments(data["hydra:member"]))
-  }, [])
 
   // Get all ingredients not null
   const ingredients = [];
@@ -29,7 +23,7 @@ const Cocktail = ({data}) => {
     measures.push(value)
   }
 
-  // getAllComments(idDrink)
+  const state = useCommentsByCocktailId(idDrink)
 
   return (
 
@@ -38,7 +32,7 @@ const Cocktail = ({data}) => {
               <p>{strGlass}</p>
 
               <Like idDrink={idDrink}
-               dataLike={location.state.dataLike}
+               dataLike={location?.state?.dataLike}
 
                />
 
@@ -73,7 +67,15 @@ const Cocktail = ({data}) => {
             <p className="m-5">{strInstructions}</p>
           </div>
 
-          <CommentsContainer comments={comments}/>
+          {
+            state?.status === 'fetching' && <Loader />
+
+          }
+
+          {
+            state?.status === 'done' && <CommentsContainer comments={state?.data?.["hydra:member"]}/>
+          }
+
 
      </div>
 

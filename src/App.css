@@ -1,4 +1,6 @@
 @import url('./styles/avatar.css');
+@import url('./styles/comment.css');
+@import url('./styles/rating.css');
 
 .App {
   text-align: center;

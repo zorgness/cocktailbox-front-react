@@ -8,14 +8,14 @@ const CocktailCard = ({cocktail, like}) => {
 
   const {idDrink, strDrink, strDrinkThumb, strGlass, strCategory, strAlcoholic} = cocktail
 
-  const imgStyles = {backgroundImage: `linear-gradient(190deg, #fa7c30 16%, rgba(0, 0, 0, 0)16%), url(${strDrinkThumb})`, backgroundSize: "cover", backgroundPosition: "center", height: "280px" }
+  const imgStyles = {backgroundImage: `linear-gradient(190deg, #fa7c30 18%, rgba(0, 0, 0, 0)18%), url(${strDrinkThumb})`, backgroundSize: "cover", backgroundPosition: "center", height: "280px" }
 
   return (
 
 
       <Card style={{ width: '18rem' }}>
         <div className='rounded-top' style={imgStyles}>
-          <div className='text-end m-1'>
+          <div className='text-end mx-2'>
             <Like idDrink={idDrink}
                   dataLike={like}
              />
