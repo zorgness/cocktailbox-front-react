@@ -25,7 +25,7 @@ const Search = ({handleSearch}) => {
               value={name}
               onChange={e => setName(e.target.value)}
             />
-            <Button type="submit" variant="outline-success">Search</Button>
+            <Button type="submit" variant="dark">Search</Button>
       </Form>
 
   )

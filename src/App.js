@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/journal/bootstrap.min.css"
 import {
   Routes,
   Route,

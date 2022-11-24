@@ -1,6 +1,7 @@
 @import url('./styles/avatar.css');
 @import url('./styles/comment.css');
 @import url('./styles/rating.css');
+@import url('./styles/card.css');
 
 .App {
   text-align: center;
@@ -48,4 +49,8 @@
 
 .btn-primary:hover {
   border: 1px solid white !important;
+}
+
+.btn-warning {
+  background: #fa7c30 !important;
 }
