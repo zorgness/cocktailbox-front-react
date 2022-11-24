@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Rating = (props) => {
-  const score = (props.score / 5) * 100
+const Rating = ({rating}) => {
+  const score = (rating / 5) * 100
 
   return (
     <span className="star-wrapper">
