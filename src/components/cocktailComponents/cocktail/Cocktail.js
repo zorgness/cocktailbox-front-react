@@ -1,12 +1,21 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useLocation } from 'react-router-dom'
 import Like from './Like'
+import CommentsContainer from '../../comments/CommentsContainer'
 
 const Cocktail = ({data}) => {
 
   const {idDrink, strDrink, strGlass, strDrinkThumb, strInstructions } = data[0]
 
   const location = useLocation()
+
+  const [comments, setComments] = useState([])
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/comments?idDrink=1100')
+    .then(res => res.json())
+    .then(data => setComments(data["hydra:member"]))
+  }, [])
 
   // Get all ingredients not null
   const ingredients = [];
@@ -20,6 +29,7 @@ const Cocktail = ({data}) => {
     measures.push(value)
   }
 
+  // getAllComments(idDrink)
 
   return (
 
@@ -62,6 +72,8 @@ const Cocktail = ({data}) => {
           <div className="mt-5 text-center">
             <p className="m-5">{strInstructions}</p>
           </div>
+
+          <CommentsContainer comments={comments}/>
 
      </div>
 

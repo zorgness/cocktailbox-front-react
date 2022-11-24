@@ -9,9 +9,6 @@ const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
 
-  console.log(likeData)
-
-
   useEffect(() => {
     if(dataLike?.length > 0) {
       setIsLiked(true)
