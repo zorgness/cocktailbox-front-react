@@ -2,11 +2,18 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
 import Like from './Like';
+import { useFindNumberOfLikes } from '../../../customHooks/actions/fetchDataAction';
 
 const CocktailCard = ({cocktail, like}) => {
 
 
   const {idDrink, strDrink, strDrinkThumb, strGlass, strCategory, strAlcoholic} = cocktail
+
+  const state = useFindNumberOfLikes(idDrink)
+
+  const { data } = state
+
+  console.log(data)
 
   const imgStyles = {backgroundImage: `linear-gradient(190deg, #fa7c30 18%, rgba(0, 0, 0, 0)18%), url(${strDrinkThumb})`, backgroundSize: "cover", backgroundPosition: "center", height: "280px" }
 
@@ -22,7 +29,11 @@ const CocktailCard = ({cocktail, like}) => {
           </div>
         </div>
         <Card.Body>
-          <Card.Title>{strDrink}</Card.Title>
+          <div className='d-flex justify-content-between'>
+            <Card.Title>{strDrink}</Card.Title>
+            <Card.Text>{data ?? 0} like{data?.length > 1 ? 's' : ''}</Card.Text>
+          </div>
+
 
               <Card.Text>{strCategory}</Card.Text>
               <Card.Text>{strAlcoholic}</Card.Text>
