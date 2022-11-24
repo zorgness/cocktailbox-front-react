@@ -73,7 +73,7 @@ const Cocktail = ({data}) => {
           }
 
           {
-            state?.status === 'done' && <CommentsContainer comments={state?.data?.["hydra:member"]}/>
+            state?.status === 'done' && <CommentsContainer idDrink={idDrink} comments={state?.data?.["hydra:member"]}/>
           }
 
 

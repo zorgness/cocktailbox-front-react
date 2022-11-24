@@ -2,7 +2,8 @@ import React from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 
-const CommentsContainer = ({comments}) => {
+const CommentsContainer = ({comments, idDrink}) => {
+
 
   return (
     <div className='wrapper'>
@@ -17,7 +18,7 @@ const CommentsContainer = ({comments}) => {
         </div>
 
         <div className='comment-column'>
-          <CommentForm />
+          <CommentForm idCocktail={idDrink} />
         </div>
 
     </div>
