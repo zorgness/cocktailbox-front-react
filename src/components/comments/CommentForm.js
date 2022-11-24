@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux'
 import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer';
 import { userSendComment } from '../../redux/actions/commentAction'
+import { Link } from 'react-router-dom'
 
 const CommentForm = ({idCocktail, send, name, commentData, notify}) => {
 
@@ -74,7 +75,11 @@ const CommentForm = ({idCocktail, send, name, commentData, notify}) => {
         </Form.Group>
 
         <Form.Group>
-          <Button type='submit' variant="success">Submit</Button>
+        {
+          userId ? <Button type='submit' variant="success">Submit</Button>
+          : <Link to='/login' className='btn btn-success'>Login</Link>
+        }
+
         </Form.Group>
       </Form>
     </div>
