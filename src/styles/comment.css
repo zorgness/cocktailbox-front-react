@@ -11,7 +11,7 @@
   max-width: 50%;
   width: 50%;
   float: left;
-  height: 100vh;
+  height: 80vh;
   overflow-x: scroll;
   overflow-y: scroll;
   overflow: scroll;
@@ -26,4 +26,16 @@
     max-width: 100%;
     width: 100%;
   }
+}
+
+@media (max-width: 768px) {
+
+  .wrapper {
+    flex-direction: column-reverse;
+  }
+  .comment-column {
+    max-width: 100%;
+    width: 100%;
+  }
+
 }

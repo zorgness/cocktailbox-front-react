@@ -22,9 +22,10 @@ const CommentForm = ({idCocktail, send, commentData}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(content.length < 5) {
+    if(content.length < 0) {
       return
     }
+    console.log(state)
     send(state)
   }
 

@@ -7,14 +7,12 @@ const CommentsContainer = ({comments, idDrink}) => {
 
   return (
     <div className='wrapper'>
-        <div className='comment-column d-flex flex-column align-items-center gap-3 '>
-
+        <div className='comment-column d-flex flex-column  gap-3'>
             {
               comments?.map((comment, index) => {
                 return <Comment key={index} comment={comment} />
               })
             }
-
         </div>
 
         <div className='comment-column'>

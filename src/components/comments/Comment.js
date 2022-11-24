@@ -1,11 +1,14 @@
-import React from 'react'
-import Rating from './Rating'
-import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction'
+import React from 'react';
+import Rating from './Rating';
+import { connect } from 'react-redux';
+import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction';
+import { userDestroyComment } from '../../redux/actions/commentAction';
+import Button from 'react-bootstrap/Button';
 
-const Comment = ({comment}) => {
+const Comment = ({comment, destroyComment}) => {
 
   const userId = localStorage.getItem('userId')
-  const { account, content, rating } = comment
+  const { id, account, content, rating } = comment
   const { data } =  useFindCommentOwner(account)
 
   const posterId = data?.['@id'].split('/')[3]
@@ -16,10 +19,21 @@ const Comment = ({comment}) => {
         <Rating rating={rating} />
         <p>{content}</p>
         {
-          userId === posterId && <button>delete</button>
+          userId === posterId
+          &&  <Button
+                variant="danger"
+                onClick={() =>  destroyComment(id)}>
+                Delete
+              </Button>
         }
     </div>
   )
 }
 
-export default Comment
+const mapDispatchToProps = (dispatch) => {
+  return {
+    destroyComment: (id) => dispatch(userDestroyComment(id))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Comment)

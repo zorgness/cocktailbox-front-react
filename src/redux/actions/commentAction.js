@@ -47,10 +47,10 @@ export const userSendComment = options => {
   }
 };
 
-export const userDestroyComment = () => {
+export const userDestroyComment = id => {
   return(dispatch) => {
     const options = {}
-    return fetchDataWithMethod(commentUrl, 'DELETE', options)
+    return fetchDataWithMethod(commentUrl + '/' + id, 'DELETE', options)
     .then(res => dispatch(commentDestroySuccess(res)))
     .catch(err => dispatch(commentDestroyError(err)))
   }
