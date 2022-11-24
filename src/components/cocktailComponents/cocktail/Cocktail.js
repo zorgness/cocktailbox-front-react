@@ -27,7 +27,10 @@ const Cocktail = ({data}) => {
               <h2>{strDrink}</h2>
               <p>{strGlass}</p>
 
-              <Like idDrink={idDrink} liked={location.state.liked}/>
+              <Like idDrink={idDrink}
+               dataLike={location.state.dataLike}
+
+               />
 
       <div className="d-flex flex-wrap justify-content-around align-items-center">
               <img src={strDrinkThumb} className="img-fluid m-3 rounded" style={{maxWidth: '320px', height:'auto'}} alt={strDrink} />

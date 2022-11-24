@@ -1,37 +1,34 @@
 import React from 'react'
 import CocktailCard from '../cocktail/CocktailCard'
+import { useFindUserLikes } from '../../../customHooks/actions/fetchDataAction'
 
-const Cocktails = ({data, userLikes}) => {
+const Cocktails = ({cocktails}) => {
 
-  // console.log(userLikes)
-  // // console.log(data)
+  const userId = localStorage.getItem('userId')
 
-  // const allIdDrinks = data.map(({idDrink}) => {
-  //   return idDrink
-  // })
+  const state = useFindUserLikes(userId)
 
-  // const allUserLikesIdDrinks = userLikes.map(({idDrink}) => {
-  //   return idDrink
-  // })
+  const { data } = state
 
-  // console.log(allIdDrinks)
-  // console.log(allUserLikesIdDrinks)
+  const findLike = (id) => {
+    const tmp = data?.filter(({idDrink}) => {
+      return idDrink === id
+    })
+    return tmp
+  }
 
-  // const result = allUserLikesIdDrinks.map(searchTerm => allIdDrinks.findIndex((compareTerm) => compareTerm === searchTerm));
-
-  // console.log(result)
-
+  console.log(data)
 
   return (
     <div className='d-flex justify-content-around flex-wrap gap-5'>
 
       {
-        data.map((cocktail) => {
+        cocktails.map((cocktail) => {
 
           return <CocktailCard
                     key={cocktail.idDrink}
                     cocktail={cocktail}
-                    userLikes={userLikes}
+                    like={findLike(cocktail.idDrink)}
                   />
         })
       }

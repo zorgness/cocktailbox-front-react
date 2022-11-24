@@ -2,7 +2,7 @@ import * as React from 'react'
 import { dataReducer } from '../reducers/dataReducer'
 import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
 import { fetchDataWithMethod } from '../../api/fetchDataWithMethod'
-import { fetchData } from '../../api/fetchData'
+import { fetchLikesByUserId } from '../../api/fetchLikesData'
 
 const useFetchData = () => {
 
@@ -87,15 +87,14 @@ export const ErrorDisplay = ({error}) => {
   )
 }
 
-export const useFindUserLikes = (id) => {
+export const useFindUserLikes = (userId) => {
   const {data, error, status, execute} = useFetchData()
   React.useEffect(() => {
-    if(!id) {
+    if(!userId) {
       return
     }
-    const urlMain = process.env.REACT_APP_URL_MAIN
-    execute(fetchData(urlMain + id))
-  }, [id, execute])
+    execute(fetchLikesByUserId(userId))
+  }, [userId, execute])
 
   return {data, error, status}
 }

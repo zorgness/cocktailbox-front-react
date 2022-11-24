@@ -1,22 +1,30 @@
-import React, {useState}  from 'react'
+import React, {useState, useEffect}  from 'react'
 import { connect } from 'react-redux'
 import { userLikeAttempt, userLikeDestroy } from '../../../redux/actions/likeActions'
 import emptyHeart from '../../../images/icons/heart-empty.png'
 import fullHeart from '../../../images/icons/heart-full.png'
 
-const Like = ({idDrink, authData, likeData, like, unLike, liked, dataLike}) => {
+const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
 
-  const [isLiked, setIsLiked] = useState(liked)
+  const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
 
-  console.log(dataLike?.id)
+  console.log(likeData)
+
+
+  useEffect(() => {
+    if(dataLike?.length > 0) {
+      setIsLiked(true)
+    }
+  }, [dataLike?.length])
+
   const handleClick = () => {
     setIsLiked(!isLiked)
     if(!isLiked) {
       const options = {account: `/api/users/${userId}`, idDrink: idDrink}
       like(options)
     } else {
-      unLike(dataLike?.id)
+      unLike(dataLike?.[0]?.id || likeData?.data?.id)
      }
   }
 

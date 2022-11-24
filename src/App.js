@@ -14,7 +14,7 @@ import Navigation from './components/Navigation';
 import Login from './components/authComponents/Login';
 import RegisterContainer from './components/authComponents/RegisterContainer';
 import RequireAuth from './components/authComponents/RequireAuth';
-import Favorites from './components/Favorites';
+import FavoritesContainer from './components/FavoritesContainer';
 import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
 
 
@@ -50,7 +50,7 @@ function App({authData, logout, setId, fetchProfile}) {
                 <Route path='/cocktail/:id' element={<CocktailContainer />} />
 
                 <Route element={<RequireAuth />}>
-                  <Route path='/favorites/:id' element={<Favorites />} />
+                  <Route path='/favorites/:id' element={<FavoritesContainer />} />
                 </Route>
 
               </Routes>
