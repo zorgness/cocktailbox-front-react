@@ -9,7 +9,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
 
-  console.log(dataLike)
+  const likeInfo = likeData?.drinks.filter(drink => drink.idDrink === idDrink)
 
   useEffect(() => {
     if(dataLike?.length > 0) {
@@ -23,7 +23,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
       const options = {account: `/api/users/${userId}`, idDrink: idDrink}
       like(options)
     } else {
-      unLike(dataLike?.[0]?.id || likeData?.data?.id)
+      unLike(dataLike?.[0]?.id || likeInfo[0]?.id)
      }
   }
 
@@ -33,7 +33,6 @@ const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
 
     userId &&
     <div>
-    <p>{dataLike?.id}</p>
       <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
     </div>
   )

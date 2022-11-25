@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import CocktailCard from '../cocktail/CocktailCard'
 import { useFindUserLikes } from '../../../customHooks/actions/fetchDataAction'
 
 const Cocktails = ({cocktails}) => {
+
+  // const [toDisplay, setToDisplay] = useState([])
+  // const [page, setPage] = useState(0)
+
+  // useEffect(() => {
+  //   if(cocktails.length > 5) {
+  //     setToDisplay(cocktails.splice(page, page + 5))
+  //   } else {
+  //     setToDisplay(cocktails)
+  //   }
+  // }, [cocktails, page])
 
   const userId = localStorage.getItem('userId')
 
@@ -17,11 +28,18 @@ const Cocktails = ({cocktails}) => {
     return tmp
   }
 
+  // const handleClick = () => {
+  //   setPage(prev => prev + 5)
+  // }
+
+  // console.log(page)
+
   return (
+    <div>
     <div className='d-flex justify-content-around flex-wrap gap-5 m-5'>
 
       {
-        cocktails.map((cocktail) => {
+       cocktails.map((cocktail) => {
 
           return <CocktailCard
                     key={cocktail.idDrink}
@@ -31,6 +49,8 @@ const Cocktails = ({cocktails}) => {
         })
       }
 
+    </div>
+      {/* <button onClick={handleClick}>next</button> */}
     </div>
   )
 }

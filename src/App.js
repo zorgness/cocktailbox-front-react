@@ -17,6 +17,7 @@ import RegisterContainer from './components/authComponents/RegisterContainer';
 import RequireAuth from './components/authComponents/RequireAuth';
 import FavoritesContainer from './components/favorites/FavoritesContainer';
 import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
+import PageTest from './components/pagetest/PageTest';
 
 
 function App({authData, logout, setId, fetchProfile}) {
@@ -49,6 +50,7 @@ function App({authData, logout, setId, fetchProfile}) {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<RegisterContainer isEdit={false} />} />
                 <Route path='/cocktail/:id' element={<CocktailContainer />} />
+                <Route path='/pagetest' element={<PageTest />} />
 
                 <Route element={<RequireAuth />}>
                   <Route path='/favorites/:id' element={<FavoritesContainer />} />

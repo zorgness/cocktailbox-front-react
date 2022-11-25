@@ -1,8 +1,10 @@
 import { LIKE_SEND_SUCCESS, LIKE_SEND_ERROR, LIKE_DESTROY_SUCCESS, LIKE_DESTROY_ERROR } from "../constants"
 
 const initialState = {
+  drinks: [],
   data: null,
-  error: null
+  error: null,
+  idDrink: null,
 }
 
 // drinks: []
@@ -12,6 +14,7 @@ const likeReducer = (state=initialState, action) => {
     case LIKE_SEND_SUCCESS:
       return {
         ...state,
+        drinks: [...state.drinks, action.data],
         data: action.data
       }
     case LIKE_SEND_ERROR:
@@ -22,7 +25,9 @@ const likeReducer = (state=initialState, action) => {
     case LIKE_DESTROY_SUCCESS:
           return {
             ...state,
-            data: action.data
+            drinks: state.drinks.filter(drink => drink.id !== action.id),
+            data: action.data,
+            id: action.id
           }
     case LIKE_DESTROY_ERROR:
           return {

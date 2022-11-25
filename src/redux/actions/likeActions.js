@@ -24,10 +24,11 @@ export const likeError = error => {
   }
 }
 
-export const likeDestroySuccess = data => {
+export const likeDestroySuccess = (data, id) => {
   return {
     type: LIKE_DESTROY_SUCCESS,
-    data: data
+    data: data,
+    id: id
   }
 
 }
@@ -55,7 +56,7 @@ export const userLikeDestroy = id => {
     const options = {}
     return fetchDataWithMethod(likeUrl + '/' + id, 'DELETE', options)
     .then((res) => {
-      dispatch(likeDestroySuccess(res))
+      dispatch(likeDestroySuccess(res, id))
     }).catch((err) => {
       dispatch(likeDestroyError(err.message))
     })
