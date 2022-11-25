@@ -33,6 +33,7 @@ export const fetchNumberOfLikesForDrink = idDrink => {
     .then(response => response.json())
     .then(data => {
       if (data["hydra:member"].length > 0) {
+        console.log(data["hydra:member"].length)
         return data["hydra:member"].length
       } else {
         return Promise.reject(

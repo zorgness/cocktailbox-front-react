@@ -9,7 +9,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeData}) => {
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
 
-  console.log(likeData)
+  console.log(dataLike)
 
   useEffect(() => {
     if(dataLike?.length > 0) {
@@ -49,7 +49,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     like: options => dispatch(userLikeAttempt(options)),
-    unLike: id => dispatch(userLikeDestroy(id))
+    unLike: id => dispatch(userLikeDestroy(id)),
   }
 }
 

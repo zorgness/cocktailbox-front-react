@@ -1,4 +1,5 @@
 import { fetchDataWithMethod } from "../../api/fetchDataWithMethod";
+import { fetchNumberOfLikesForDrink } from "../../api/fetchLikesData";
 import {
    LIKE_SEND_SUCCESS,
    LIKE_SEND_ERROR,
@@ -28,6 +29,7 @@ export const likeDestroySuccess = data => {
     type: LIKE_DESTROY_SUCCESS,
     data: data
   }
+
 }
 
 export const likeDestroyError = error => {

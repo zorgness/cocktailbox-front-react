@@ -29,7 +29,7 @@ const CocktailCard = ({cocktail, like}) => {
         <Card.Body>
           <div className='d-flex justify-content-between'>
             <Card.Title>{strDrink}</Card.Title>
-            <Card.Text>{data ?? 0} like{data?.length > 1 ? 's' : ''}</Card.Text>
+            <Card.Text>{data ?? 0} like{data > 1 ? 's' : ''}</Card.Text>
           </div>
 
 
