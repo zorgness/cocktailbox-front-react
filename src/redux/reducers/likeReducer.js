@@ -1,10 +1,11 @@
 import { LIKE_SEND_SUCCESS, LIKE_SEND_ERROR, LIKE_DESTROY_SUCCESS, LIKE_DESTROY_ERROR } from "../constants"
 
 const initialState = {
-
   data: null,
   error: null
 }
+
+// drinks: []
 
 const likeReducer = (state=initialState, action) => {
   switch (action.type) {

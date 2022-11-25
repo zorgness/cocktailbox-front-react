@@ -13,8 +13,6 @@ const CocktailCard = ({cocktail, like}) => {
 
   const { data } = state
 
-  console.log(data)
-
   const imgStyles = {backgroundImage: `linear-gradient(190deg, #fa7c30 18%, rgba(0, 0, 0, 0)18%), url(${strDrinkThumb})`, backgroundSize: "cover", backgroundPosition: "center", height: "280px" }
 
   return (
