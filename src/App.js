@@ -45,7 +45,7 @@ function App({authData, logout, setId, fetchProfile}) {
             <ScrollToTop >
             <Navigation handleSearch={handleSearch} authData={authData} logout={logout}   />
               <Routes>
-                <Route path="/" element={<Home name={name} authData={authData}/>}/>
+                <Route path="/" element={<Home name={name} authData={authData} handleSearch={handleSearch} />}/>
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<RegisterContainer isEdit={false} />} />
                 <Route path='/cocktail/:id' element={<CocktailContainer />} />

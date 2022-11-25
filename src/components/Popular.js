@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { populars } from '../data/popular';
 
 const Popular = () => {
 
-  const handleClick = (e) => {
-    console.log(e.target.name)
+  const [ingredient, setIngredient] = useState(null)
 
+  const handleClick = (e) => {
+    setIngredient(e.target.value)
   }
 
   return (
