@@ -1,5 +1,5 @@
 import { fetchDataWithMethod } from "../../api/fetchDataWithMethod";
-import { fetchNumberOfLikesForDrink } from "../../api/fetchLikesData";
+
 import {
    LIKE_SEND_SUCCESS,
    LIKE_SEND_ERROR,
