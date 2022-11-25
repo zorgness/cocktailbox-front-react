@@ -2,6 +2,7 @@
 @import url('./styles/comment.css');
 @import url('./styles/rating.css');
 @import url('./styles/card.css');
+@import url('./styles/popular.css');
 
 .App {
   text-align: center;

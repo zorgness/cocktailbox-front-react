@@ -1,0 +1,22 @@
+#popular {
+  margin: 30px;
+}
+
+#ingredient {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.popular-img {
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  #popular {
+    margin-top: 40%;
+  }
+  .popular-img {
+    width: 80px;
+  }
+}

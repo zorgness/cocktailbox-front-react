@@ -41,7 +41,7 @@ export const fetchNumberOfLikesForDrink = idDrink => {
       } // ERROR DU JSON()
     })
     .catch(error => {
-      // return Promise.reject(new Error(`Aucun Likes trouvé avec l'idDrink "${idDrink}"`))
+      //Promise.reject(new Error(`Aucun Likes trouvé avec l'idDrink "${idDrink}"`))
       return 0
     }) // ERROR APPEL API
 
