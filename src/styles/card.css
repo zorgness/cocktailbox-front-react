@@ -5,6 +5,12 @@
 nav  {
   background-color: #fa7c30 !important;
 }
+.offcanvas {
+  background-color: #fa7c30 !important;
+  opacity: 0.9 !important;
+
+
+}
 
 .card-category {
   background-size: cover;
