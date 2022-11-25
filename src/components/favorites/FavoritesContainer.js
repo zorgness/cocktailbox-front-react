@@ -15,8 +15,6 @@ const FavoritesContainer = ({authData}) => {
 
   const idList = data?.map(({idDrink}) => idDrink)
 
-  console.log(idList)
-
   if (status === 'fail') {
     return  <FavoritePage />
   } else if (status === 'idle') {

@@ -17,12 +17,6 @@ const Cocktails = ({cocktails}) => {
     return tmp
   }
 
-  // const handleClick = () => {
-  //   setPage(prev => prev + 5)
-  // }
-
-  // console.log(page)
-
   return (
     <div>
     <div className='d-flex justify-content-around flex-wrap gap-5 m-5'>
@@ -39,7 +33,7 @@ const Cocktails = ({cocktails}) => {
       }
 
     </div>
-      {/* <button onClick={handleClick}>next</button> */}
+
     </div>
   )
 }
