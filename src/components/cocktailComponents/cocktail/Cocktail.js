@@ -1,14 +1,12 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import Like from './Like'
 import CommentsContainer from '../../comments/CommentsContainer'
 import { useCommentsByCocktailId } from '../../../customHooks/actions/fetchDataAction'
 
 const Cocktail = ({data}) => {
 
-  const {idDrink, strDrink, strGlass, strDrinkThumb, strInstructions } = data[0]
-
-  const location = useLocation()
+  const {idDrink, strDrink, strGlass, strDrinkThumb, strInstructions, strInstructionsFR
+  } = data[0]
 
   // Get all ingredients not null
   const ingredients = [];
@@ -30,10 +28,10 @@ const Cocktail = ({data}) => {
               <h2>{strDrink}</h2>
               <p>{strGlass}</p>
 
-              <Like idDrink={idDrink}
-               dataLike={location?.state?.dataLike}
+              {/* <Like idDrink={idDrink}
 
-               />
+
+               /> */}
 
       <div className="d-flex flex-wrap justify-content-around align-items-center">
               <img src={strDrinkThumb} className="img-fluid m-3 rounded" style={{maxWidth: '320px', height:'auto'}} alt={strDrink} />
@@ -63,7 +61,11 @@ const Cocktail = ({data}) => {
         </div>
 
           <div className="mt-5 text-center">
-            <p className="m-5">{strInstructions}</p>
+          {
+            strInstructionsFR !== null ? <p className="m-5">{strInstructionsFR}</p> : <p className="m-5">{strInstructions}</p>
+
+          }
+
           </div>
 
 

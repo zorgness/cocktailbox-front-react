@@ -6,7 +6,7 @@ import { userDestroyComment } from '../../redux/actions/commentAction';
 import Button from 'react-bootstrap/Button';
 import { capitalize } from '../../utils/capitalize'
 
-const Comment = ({comment, destroyComment, notify }) => {
+const Comment = ({comment, destroyComment, notify}) => {
 
   const userId = localStorage.getItem('userId')
 
