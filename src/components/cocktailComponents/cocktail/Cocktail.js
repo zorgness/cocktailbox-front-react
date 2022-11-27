@@ -2,6 +2,7 @@ import React from 'react'
 // import Like from './Like'
 import CommentsContainer from '../../comments/CommentsContainer'
 import { useCommentsByCocktailId } from '../../../customHooks/actions/fetchDataAction'
+import Rating from '../../comments/Rating'
 
 const Cocktail = ({data}) => {
 
@@ -22,6 +23,12 @@ const Cocktail = ({data}) => {
 
   const state = useCommentsByCocktailId(idDrink)
 
+  const allDrinkRatings = state?.data?.["hydra:member"]?.map(({rating}) => rating)
+
+  const avgRating = allDrinkRatings?.reduce((a, b) => a + b) / allDrinkRatings?.length;
+
+  console.log(avgRating)
+
   return (
 
     <div className="text-center mt-5">
@@ -32,6 +39,8 @@ const Cocktail = ({data}) => {
 
 
                /> */}
+
+               <Rating rating={avgRating} />
 
       <div className="d-flex flex-wrap justify-content-around align-items-center">
               <img src={strDrinkThumb} className="img-fluid m-3 rounded" style={{maxWidth: '320px', height:'auto'}} alt={strDrink} />
