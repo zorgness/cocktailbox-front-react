@@ -6,7 +6,7 @@ import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer'
 import { userSendComment } from '../../redux/actions/commentAction'
 import { Link } from 'react-router-dom'
 
-const CommentForm = ({idCocktail, send, name, commentData, notify}) => {
+const CommentForm = ({idCocktail, send, name, commentData, notify }) => {
 
   const userId = localStorage.getItem('userId');
 
