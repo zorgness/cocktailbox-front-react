@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import { connect } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
@@ -95,6 +95,11 @@ const Login = ({authData, auth, closeModal}) => {
       </Form.Group>
 
     </Form>
+
+    <div className='mt-5 text-end'>
+      <h6>Vous n'avez pas encore de compte ?</h6>
+          <Link to="/register" className='text-secondary'>inscrivez-vous ici</Link>
+    </div>
   </Container>
 
   </div>
