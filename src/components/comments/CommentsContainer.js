@@ -36,7 +36,7 @@ const CommentsContainer = ({comment, idDrink, name, getList}) => {
 
         <div className='comment-column'>
           <pre className='mt-3'>{commentList?.length} commentaire{commentList?.length > 1 ? 's' : '' }</pre>
-          <CommentForm idCocktail={idDrink} notify={notify} name={name} getList={getList} />
+          <CommentForm idCocktail={idDrink} listSize={commentList?.length} notify={notify} name={name} getList={getList} />
         </div>
 
     </div>

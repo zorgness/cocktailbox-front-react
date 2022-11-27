@@ -6,7 +6,7 @@ import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer'
 import { userSendComment } from '../../redux/actions/commentAction'
 import { Link } from 'react-router-dom'
 
-const CommentForm = ({idCocktail, send, name, notify }) => {
+const CommentForm = ({idCocktail, send, name, notify, listSize }) => {
 
   const userId = localStorage.getItem('userId');
 
@@ -48,7 +48,12 @@ const CommentForm = ({idCocktail, send, name, notify }) => {
 
   return (
     <div className="container">
-      <h3>Donnez votre avis sur {name}</h3>
+    {
+      listSize === 0
+      ? <h3>Soyez le premier a donner votre avis sur {name}</h3>
+      : <h3>Donnez votre avis sur {name}</h3>
+    }
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label></Form.Label>

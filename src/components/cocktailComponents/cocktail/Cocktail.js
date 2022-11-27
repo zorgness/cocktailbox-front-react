@@ -25,7 +25,7 @@ const Cocktail = ({data}) => {
 
   const allDrinkRatings = state?.data?.["hydra:member"]?.map(({rating}) => rating)
 
-  const avgRating = allDrinkRatings?.reduce((a, b) => a + b) / allDrinkRatings?.length;
+  const avgRating = allDrinkRatings?.length > 0 ? allDrinkRatings?.reduce((a, b) => a + b) / allDrinkRatings?.length : 0
 
   console.log(avgRating)
 
