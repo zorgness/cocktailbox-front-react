@@ -10,6 +10,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
   const [num, setNum] = useState(0)
+
   const likeInfo = likeDataStore?.drinks.filter(drink => drink.idDrink === idDrink)
 
   useEffect(() => {
@@ -42,10 +43,12 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
 
   return (
 
-    userId &&
+
     <div>
-      <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
-       <p className='text-white f-bold'>{num} like{num > 1 ? 's' : ''}</p>
+        {
+          userId && <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
+        }
+        <p className='text-white f-bold'>{num} like{num > 1 ? 's' : ''}</p>
     </div>
   )
 }
