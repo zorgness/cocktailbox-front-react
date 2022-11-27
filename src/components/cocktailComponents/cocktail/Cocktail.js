@@ -27,8 +27,6 @@ const Cocktail = ({data}) => {
 
   const avgRating = allDrinkRatings?.length > 0 ? allDrinkRatings?.reduce((a, b) => a + b) / allDrinkRatings?.length : 0
 
-  console.log(avgRating)
-
   return (
 
     <div className="text-center mt-5">

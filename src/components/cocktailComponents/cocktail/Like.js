@@ -4,12 +4,15 @@ import { userLikeAttempt, userLikeDestroy } from '../../../redux/actions/likeAct
 import emptyHeart from '../../../images/icons/heart-empty.png'
 import fullHeart from '../../../images/icons/heart-full.png'
 import { fetchNumberOfLikesForDrink } from '../../../api/fetchLikesData';
+import { useNavigate } from 'react-router-dom';
 
 const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
 
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
   const [num, setNum] = useState(0)
+
+  const navigate = useNavigate()
 
   const likeInfo = likeDataStore?.drinks.filter(drink => drink.idDrink === idDrink)
 
@@ -39,6 +42,10 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
      }
   }
 
+  const goToLogin = () => {
+    navigate('/login')
+  }
+
   const icon = isLiked ? fullHeart : emptyHeart
 
   return (
@@ -46,7 +53,9 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
 
     <div>
         {
-          userId && <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
+          userId
+          ? <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
+          : <img src={icon} className="avatar" alt="empty heart" onClick={goToLogin}  />
         }
         <p className='text-white f-bold'>{num} like{num > 1 ? 's' : ''}</p>
     </div>
