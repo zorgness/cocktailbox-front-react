@@ -1,4 +1,4 @@
-import React, {useReducer, Fragment} from 'react'
+import React, {useReducer, Fragment, useRef} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux'
@@ -6,7 +6,7 @@ import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer'
 import { userSendComment } from '../../redux/actions/commentAction'
 import { Link } from 'react-router-dom'
 
-const CommentForm = ({idCocktail, send, name, commentData, notify }) => {
+const CommentForm = ({idCocktail, send, name, notify }) => {
 
   const userId = localStorage.getItem('userId');
 
@@ -23,12 +23,14 @@ const CommentForm = ({idCocktail, send, name, commentData, notify }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(content.length < 0) {
+    if(content.length < 1) {
       return
     }
-    console.log(state)
     send(state)
     notify('envoyé')
+    dispatch({type: "input", name: "content", value: initialState.content})
+    dispatch({type: "input", name: "rating", value: initialState.rating})
+
   }
 
   const ratingOptions = [5,4,3,2,1].map((level, index) => {
@@ -54,7 +56,7 @@ const CommentForm = ({idCocktail, send, name, commentData, notify }) => {
             as="textarea"
             rows={3}
             name="content"
-            defaultValue={content}
+            value={content}
               onChange={e =>
                 dispatch({
                   type: "input",
@@ -86,16 +88,10 @@ const CommentForm = ({idCocktail, send, name, commentData, notify }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    commentData: state.comment
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
     send: options => dispatch(userSendComment(options))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(CommentForm)
+export default connect(null, mapDispatchToProps )(CommentForm)

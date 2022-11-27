@@ -33,7 +33,6 @@ export const dataSubmitReducer = (state, action) =>  {
   } else if (action.type === "success") {
     return {
       ...state,
-      registered: true,
       loading: false,
       error: null
     };

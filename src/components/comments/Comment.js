@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction';
 import { userDestroyComment } from '../../redux/actions/commentAction';
 import Button from 'react-bootstrap/Button';
+import { capitalize } from '../../utils/capitalize'
 
 const Comment = ({comment, destroyComment, notify }) => {
 
@@ -22,7 +23,7 @@ const Comment = ({comment, destroyComment, notify }) => {
   return (
     <div className='m-3'>
       <div className='rounded bg-white text-dark p-2'>
-          <h4>Comment by: {data?.username}</h4>
+          <h4>comment by: {capitalize(data?.username)}</h4>
           <Rating rating={comment?.rating} />
           <p>{comment?.content}</p>
           {
