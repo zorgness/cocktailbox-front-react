@@ -1,14 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { populars } from '../data/popular';
+import { SearchContext } from '../SearchContext';
 
 const Popular = () => {
 
-  const [ingredient, setIngredient] = useState(null)
+  const handleSearch = useContext(SearchContext);
 
   const handleClick = (e) => {
-    setIngredient(e.target.value)
+    console.log(e.target.name)
+    handleSearch(e.target.name)
   }
+
 
   return (
     <div className='text-center'>

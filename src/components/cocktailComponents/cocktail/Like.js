@@ -5,15 +5,12 @@ import emptyHeart from '../../../images/icons/heart-empty.png'
 import fullHeart from '../../../images/icons/heart-full.png'
 import { fetchNumberOfLikesForDrink } from '../../../api/fetchLikesData';
 
-
 const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
 
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
   const [num, setNum] = useState(0)
-
   const likeInfo = likeDataStore?.drinks.filter(drink => drink.idDrink === idDrink)
-
 
   useEffect(() => {
     if(dataLike?.length > 0) {

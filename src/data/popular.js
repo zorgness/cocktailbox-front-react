@@ -11,8 +11,8 @@ export const populars = [
   },
   {
     id: 3,
-    ingredient: "whiskey",
-    image: "https://www.thecocktaildb.com/images/ingredients/whiskey-Medium.png"
+    ingredient: "rum",
+    image: "https://www.thecocktaildb.com/images/ingredients/rum-Medium.png"
   },
   {
     id: 4,
@@ -21,7 +21,7 @@ export const populars = [
   },
   {
     id: 5,
-    ingredient: "prosecco",
+    ingredient: "spritz",
     image: "https://www.thecocktaildb.com/images/ingredients/prosecco-Medium.png"
   },
   {
@@ -29,18 +29,14 @@ export const populars = [
     ingredient: "vermouth",
     image: "https://www.thecocktaildb.com/images/ingredients/vermouth-Medium.png"
   },
+
   {
     id: 7,
-    ingredient: "cachaca",
-    image: "https://www.thecocktaildb.com/images/ingredients/cachaca-Medium.png"
-  },
-  {
-    id: 8,
-    ingredient: "light%20rum",
+    ingredient: "bacardi",
     image: "https://www.thecocktaildb.com/images/ingredients/light%20rum-Medium.png"
   },
   {
-    id: 9,
+    id: 8,
     ingredient: "tequila",
     image: "https://www.thecocktaildb.com/images/ingredients/tequila-Medium.png"
   }

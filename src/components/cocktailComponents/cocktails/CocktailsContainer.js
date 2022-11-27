@@ -5,7 +5,7 @@ import HomePage from '../../HomePage'
 import { connect } from 'react-redux'
 import Loader from '../../Loader'
 
-const CocktailsContainer = ({name, authData, handleSearch}) => {
+const CocktailsContainer = ({name, authData}) => {
 
   const state = useFindCocktailByName(name)
 
@@ -14,7 +14,7 @@ const CocktailsContainer = ({name, authData, handleSearch}) => {
   if (status === 'fail') {
     return <ErrorDisplay error={error}/>
   } else if (status === 'idle') {
-    return <HomePage authData={authData} handleSearch={handleSearch} />
+    return <HomePage authData={authData} />
   } else if (status === 'fetching') {
     return <Loader />
   } else if (status === 'done') {

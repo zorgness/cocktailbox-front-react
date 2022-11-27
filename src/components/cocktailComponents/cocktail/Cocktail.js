@@ -1,5 +1,5 @@
 import React from 'react'
-import Like from './Like'
+// import Like from './Like'
 import CommentsContainer from '../../comments/CommentsContainer'
 import { useCommentsByCocktailId } from '../../../customHooks/actions/fetchDataAction'
 
