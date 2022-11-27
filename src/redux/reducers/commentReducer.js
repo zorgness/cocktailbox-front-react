@@ -13,7 +13,7 @@ const initialState = {
   commentList: null,
   isFetching: false,
   error: null,
-  status: null,
+
 }
 
 const commentReducer =  (state=initialState, action) => {
@@ -28,9 +28,7 @@ const commentReducer =  (state=initialState, action) => {
           ...state,
           commentList: !state.commentList ? action.data['hydra:member']
             : state.commentList.concat(action.data['hydra:member']),
-          // commentList: state.commentList.concat(action.data['hydra:member']),
-          isFetching: false,
-          status: "done"
+          isFetching: false
         };
       case COMMENT_LIST_ERROR:
           return {
@@ -52,7 +50,7 @@ const commentReducer =  (state=initialState, action) => {
       case COMMENT_DESTROY_SUCCESS:
         return {
             ...state,
-            commentList: state.commentList.filter(comment => comment.id !== action.comment.id)
+            commentList: state.commentList.filter(comment => comment.id !== action.id)
           }
       case COMMENT_DESTROY_ERROR:
         return {

@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Search from './Search';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Navigation = ({authData, logout, handleSearch}) => {
 
@@ -48,9 +47,6 @@ const Navigation = ({authData, logout, handleSearch}) => {
             </div>
 
           </Nav>
-
-
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

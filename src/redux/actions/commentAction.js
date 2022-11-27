@@ -29,10 +29,10 @@ export const commentSendError = error => {
   }
 }
 
-export const commentDestroySuccess = data => {
+export const commentDestroySuccess = id => {
   return {
     type: COMMENT_DESTROY_SUCCESS,
-    data: data
+    id
   }
 }
 
@@ -69,9 +69,7 @@ export const userDestroyComment = id => {
   return(dispatch) => {
     const options = {}
     return fetchDataWithMethod(commentUrl + '/' + id, 'DELETE', options)
-    .then(res =>{
-        console.log(res)
-       dispatch(commentDestroySuccess(res))})
+    .then(res => dispatch(commentDestroySuccess(id)))
     .catch(err => dispatch(commentDestroyError(err)))
   }
 };

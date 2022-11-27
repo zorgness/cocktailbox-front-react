@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {connect} from "react-redux";
 import { commentListFetch } from '../../redux/actions/commentAction';
-import { fetchData } from '../../api/fetchData';
 
 const CommentsContainer = ({comment, idDrink, name, getList}) => {
 
@@ -13,8 +12,7 @@ const CommentsContainer = ({comment, idDrink, name, getList}) => {
    ? toast.warning(`Votre commentaire est ${type} !`)
    : toast.success(`Votre commentaire est ${type} !`)
 
-
-  const {isFetching, commentList, status} = comment
+  const { commentList } = comment
 
   useEffect(() => {
     return(() => {
@@ -22,8 +20,6 @@ const CommentsContainer = ({comment, idDrink, name, getList}) => {
     })
 
   }, [idDrink, getList])
-
-  console.log(isFetching)
 
 
   return (
