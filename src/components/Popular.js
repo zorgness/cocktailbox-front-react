@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useContext } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { populars } from '../data/popular';
 import { SearchContext } from '../SearchContext';
@@ -14,7 +14,7 @@ const Popular = () => {
 
 
   return (
-    <div className='text-center'>
+    <div className='text-center m-5'>
 
           <h2 className='text-center p-5'>Popular</h2>
 

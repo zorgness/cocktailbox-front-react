@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import { dataSubmitReducer } from '../../customHooks/reducers/dataSubmitReducer';
 import { userSendComment } from '../../redux/actions/commentAction'
 import { Link } from 'react-router-dom'
+import { notify } from '../../utils/notify';
 
-const CommentForm = ({idCocktail, send, name, notify, listSize }) => {
+const CommentForm = ({idCocktail, send, name, listSize }) => {
 
   const userId = localStorage.getItem('userId');
 
@@ -42,8 +43,6 @@ const CommentForm = ({idCocktail, send, name, notify, listSize }) => {
          </Fragment>
       )
     })
-
-
 
 
   return (

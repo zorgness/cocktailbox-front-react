@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/journal/bootstrap.min.css"
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Routes,
   Route,
@@ -17,6 +18,7 @@ import RegisterContainer from './components/authComponents/RegisterContainer';
 import RequireAuth from './components/authComponents/RequireAuth';
 import FavoritesContainer from './components/favorites/FavoritesContainer';
 import CocktailContainer from './components/cocktailComponents/cocktail/CocktailContainer';
+import { ToastContainer } from 'react-toastify';
 
 
 function App({authData, logout, setId, fetchProfile}) {
@@ -43,6 +45,7 @@ function App({authData, logout, setId, fetchProfile}) {
   return (
 
             <ScrollToTop >
+              <ToastContainer />
               <Navigation handleSearch={handleSearch} authData={authData} logout={logout}   />
               <Routes>
 

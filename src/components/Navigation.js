@@ -3,11 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Search from './Search';
+import { notify } from './../utils/notify';
 
 const Navigation = ({authData, logout, handleSearch}) => {
 
   const handleLogout = () => {
     logout()
+    notify("bye bye")
     localStorage.removeItem('user')
   }
 

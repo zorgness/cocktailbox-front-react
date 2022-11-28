@@ -5,8 +5,9 @@ import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction';
 import { userDestroyComment } from '../../redux/actions/commentAction';
 import Button from 'react-bootstrap/Button';
 import { capitalize } from '../../utils/capitalize'
+import { notify } from '../../utils/notify';
 
-const Comment = ({comment, destroyComment, notify}) => {
+const Comment = ({comment, destroyComment }) => {
 
   const userId = localStorage.getItem('userId')
 
