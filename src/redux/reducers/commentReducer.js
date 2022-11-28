@@ -6,6 +6,7 @@ import {
     COMMENT_LIST_ERROR,
     COMMENT_LIST_RECEIVED,
     COMMENT_LIST_REQUEST,
+    COMMENT_LIST_UNLOAD
  }
    from "../constants";
 
@@ -30,6 +31,12 @@ const commentReducer =  (state=initialState, action) => {
             : state.commentList.concat(action.data['hydra:member']),
           isFetching: false
         };
+      case COMMENT_LIST_UNLOAD:
+        return {
+          ...state,
+          isFetching: false,
+          commentList: null
+        }
       case COMMENT_LIST_ERROR:
           return {
               ...state,

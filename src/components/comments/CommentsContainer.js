@@ -4,9 +4,9 @@ import CommentForm from './CommentForm'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {connect} from "react-redux";
-import { commentListFetch } from '../../redux/actions/commentAction';
+import { commentListFetch, commentListUnload } from '../../redux/actions/commentAction';
 
-const CommentsContainer = ({comment, idDrink, name, getList}) => {
+const CommentsContainer = ({comment, idDrink, name, getList, unloadList}) => {
 
   const notify = (type) => type === 'effacé'
    ? toast.warning(`Votre commentaire est ${type} !`)
@@ -17,9 +17,10 @@ const CommentsContainer = ({comment, idDrink, name, getList}) => {
   useEffect(() => {
     return(() => {
       getList(idDrink)
+      unloadList()
     })
 
-  }, [idDrink, getList])
+  }, [idDrink, getList, unloadList])
 
 
   return (
@@ -51,7 +52,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getList: idDrink => dispatch(commentListFetch(idDrink))
+    getList: idDrink => dispatch(commentListFetch(idDrink)),
+    unloadList: () => dispatch(commentListUnload())
   }
 }
 

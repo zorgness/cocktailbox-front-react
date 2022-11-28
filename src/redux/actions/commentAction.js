@@ -7,7 +7,8 @@ import {
   COMMENT_DESTROY_ERROR,
   COMMENT_LIST_ERROR,
   COMMENT_LIST_RECEIVED,
-  COMMENT_LIST_REQUEST
+  COMMENT_LIST_REQUEST,
+  COMMENT_LIST_UNLOAD
 }
  from "../constants";
 
@@ -82,3 +83,7 @@ export const commentListFetch = (idDrink) => {
       .catch(error =>dispatch(commentListError(error)));
   }
 };
+
+export const commentListUnload = () => ({
+  type: COMMENT_LIST_UNLOAD,
+});
