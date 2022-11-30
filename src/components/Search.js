@@ -17,7 +17,7 @@ const Search = ({handleSearch}) => {
 
       <Form className="d-flex" onSubmit={handleSubmit}>
             <Form.Control
-              type="search"
+              type="text"
               placeholder="Search"
               className="me-2"
               aria-label="Search"

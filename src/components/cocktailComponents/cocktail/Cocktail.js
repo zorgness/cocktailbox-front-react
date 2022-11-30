@@ -30,7 +30,7 @@ const Cocktail = ({data}) => {
   return (
 
     <div className="text-center mt-5">
-              <h2>{strDrink}</h2>
+              <h2 id='title'>{strDrink}</h2>
               <p>{strGlass}</p>
 
               {/* <Like idDrink={idDrink}
