@@ -6,28 +6,28 @@ import fullHeart from '../../../images/icons/heart-full.png'
 import { fetchNumberOfLikesForDrink } from '../../../api/fetchLikesData';
 import { useNavigate } from 'react-router-dom';
 
-const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
+const Like = ({idDrink, like, unLike, likeDataStore, likeByUser}) => {
 
   const [isLiked, setIsLiked] = useState(false)
   const userId = localStorage.getItem('userId')
-  const [num, setNum] = useState(0)
+  const [numberOfLikes, setNumberOfLikes] = useState(0)
 
   const navigate = useNavigate()
 
   const likeInfo = likeDataStore?.drinks.filter(drink => drink.idDrink === idDrink)
 
   useEffect(() => {
-    if(dataLike?.length > 0) {
+    if(likeByUser) {
       setIsLiked(true)
     }
-  }, [dataLike?.length])
+  }, [likeByUser])
 
 
   useEffect(() => {
     fetchNumberOfLikesForDrink(idDrink)
     .then(res =>{
 
-       setNum(res)
+       setNumberOfLikes(res)
     })
   })
 
@@ -38,7 +38,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
       const options = {account: `/api/users/${userId}`, idDrink: idDrink}
       like(options)
     } else {
-      unLike(dataLike?.[0]?.id || likeInfo[0]?.id)
+      unLike(likeInfo[0]?.id)
      }
   }
 
@@ -57,7 +57,7 @@ const Like = ({idDrink, like, unLike, dataLike, likeDataStore}) => {
           ? <img src={icon} className="avatar" alt="empty heart" onClick={handleClick}  />
           : <img src={icon} className="avatar" alt="empty heart" onClick={goToLogin}  />
         }
-        <p className='text-white f-bold'>{num} like{num > 1 ? 's' : ''}</p>
+        <p className='text-white f-bold'>{numberOfLikes} like{numberOfLikes > 1 ? 's' : ''}</p>
     </div>
   )
 }

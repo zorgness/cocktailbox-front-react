@@ -3,11 +3,13 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
 import Like from './Like';
 
-const CocktailCard = ({cocktail, like}) => {
+const CocktailCard = ({cocktail, isLiked}) => {
 
   const {idDrink, strDrink, strDrinkThumb, strGlass, strCategory, strAlcoholic} = cocktail
 
   const imgStyles = {backgroundImage: `linear-gradient(190deg, #fa7c30 20%, rgba(0, 0, 0, 0)20%), url(${strDrinkThumb})`, backgroundSize: "cover", backgroundPosition: "center", height: "280px" }
+
+  console.log(isLiked)
 
   return (
 
@@ -16,7 +18,7 @@ const CocktailCard = ({cocktail, like}) => {
         <div className='rounded-top' style={imgStyles}>
           <div className='text-end mx-2'>
             <Like idDrink={idDrink}
-                  dataLike={like}
+                  likeByUser={isLiked}
              />
 
           </div>
@@ -34,7 +36,7 @@ const CocktailCard = ({cocktail, like}) => {
           <Link
             to={`/cocktail/${idDrink}`}
             className="btn btn-primary"
-            state={{dataLike: like}}
+            // state={{dataLike: like}}
             >
             see more...
             </Link>

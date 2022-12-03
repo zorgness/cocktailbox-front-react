@@ -10,12 +10,14 @@ const Cocktails = ({cocktails}) => {
 
   const { data } = state
 
-  const findLike = (id) => {
+  const findCardIsLikedByUser = (id) => {
     const tmp = data?.filter(({idDrink}) => {
       return idDrink === id
     })
-    return tmp
+    return tmp?.length < 1
   }
+
+
 
   return (
     <div>
@@ -23,11 +25,11 @@ const Cocktails = ({cocktails}) => {
 
       {
        cocktails.map((cocktail) => {
-
+        console.log(findCardIsLikedByUser(cocktail.idDrink))
           return <CocktailCard
                     key={cocktail.idDrink}
                     cocktail={cocktail}
-                    like={findLike(cocktail.idDrink)}
+                    isLiked={findCardIsLikedByUser(cocktail.idDrink)}
                   />
         })
       }
