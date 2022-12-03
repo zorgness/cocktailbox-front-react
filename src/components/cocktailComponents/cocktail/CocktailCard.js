@@ -36,11 +36,7 @@ const CocktailCard = ({ cocktail, isLiked }) => {
         <Card.Text>{strAlcoholic}</Card.Text>
         <Card.Text>{strGlass}</Card.Text>
 
-        <Link
-          to={`/cocktail/${idDrink}`}
-          className="btn btn-primary"
-          // state={{dataLike: like}}
-        >
+        <Link to={`/cocktail/${idDrink}`} className="btn btn-primary">
           see more...
         </Link>
       </Card.Body>

@@ -12,11 +12,11 @@ const Favorite = ({ id }) => {
 
   const state2 = useFindUserLikes(userId);
 
-  const findLike = (id) => {
+  const findCardIsLikedByUser = (id) => {
     const tmp = state2?.data?.filter(({ idDrink }) => {
       return idDrink === id;
     });
-    return tmp;
+    return tmp?.length > 0;
   };
 
   const { data, error, status } = state;
@@ -28,7 +28,12 @@ const Favorite = ({ id }) => {
   } else if (status === "fetching") {
     return <Loader />;
   } else if (status === "done") {
-    return <CocktailCard cocktail={data[0]} like={findLike(data[0].idDrink)} />;
+    return (
+      <CocktailCard
+        cocktail={data[0]}
+        isLiked={findCardIsLikedByUser(data[0]?.idDrink)}
+      />
+    );
   }
 };
 

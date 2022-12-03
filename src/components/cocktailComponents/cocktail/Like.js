@@ -17,8 +17,6 @@ const Like = ({ idDrink, like, unLike, isPresent }) => {
   const userId = localStorage.getItem("userId");
   const [numberOfLikes, setNumberOfLikes] = useState(0);
 
-  console.log(isPresent);
-
   const navigate = useNavigate();
 
   useEffect(() => {
