@@ -1,20 +1,17 @@
-import React from 'react'
-import Favorite from './Favorite'
+import React from "react";
+import Favorite from "./Favorite";
 
-const Favorites = ({list}) => {
-
+const Favorites = ({ list }) => {
   return (
     <div>
-     <h1 className='m-3'>Favorites</h1>
-      <div className='d-flex justify-content-around flex-wrap gap-5 m-5'>
-        {
-          list.map((id, index) => {
-            return <Favorite key={index} id={id}/>
-          })
-        }
+      <h1 className="m-3">Favorites</h1>
+      <div className="d-flex justify-content-around flex-wrap gap-5 m-5">
+        {list.map((id, index) => {
+          return <Favorite key={index} id={id} />;
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Favorites
+export default Favorites;
