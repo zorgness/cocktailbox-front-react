@@ -1,49 +1,42 @@
-import React from 'react';
-import Rating from './Rating';
-import { connect } from 'react-redux';
-import { useFindCommentOwner } from '../../customHooks/actions/fetchDataAction';
-import { userDestroyComment } from '../../redux/actions/commentAction';
-import Button from 'react-bootstrap/Button';
-import { capitalize } from '../../utils/capitalize'
-import { notify } from '../../utils/notify';
+import React from "react";
+import Rating from "./Rating";
+import { connect } from "react-redux";
+import { useFindCommentOwner } from "../../customHooks/actions/fetchDataAction";
+import { userDestroyComment } from "../../redux/actions/commentAction";
+import Button from "react-bootstrap/Button";
+import { capitalize } from "../../utils/capitalize";
 
-const Comment = ({comment, destroyComment }) => {
+const Comment = ({ comment, destroyComment }) => {
+  const userId = localStorage.getItem("userId");
 
-  const userId = localStorage.getItem('userId')
+  const { data } = useFindCommentOwner(comment?.account);
 
-  const { data } =  useFindCommentOwner(comment?.account)
-
-  const posterId = data?.['@id'].split('/')[3]
+  const posterId = data?.["@id"].split("/")[3];
 
   const handleDestroy = () => {
-    destroyComment(comment?.id)
-    notify('effacé')
-
-  }
+    destroyComment(comment?.id);
+  };
 
   return (
-    <div className='m-3'>
-      <div className='rounded bg-white text-dark p-2'>
-          <h4>comment by: {capitalize(data?.username)}</h4>
-          <Rating rating={comment?.rating} />
-          <p>{comment?.content}</p>
-          {
-            userId === posterId
-            &&  <Button
-                  variant="danger"
-                  onClick={handleDestroy}>
-                  Delete
-                </Button>
-          }
+    <div className="m-3">
+      <div className="rounded bg-white text-dark p-2">
+        <h4>comment by: {capitalize(data?.username)}</h4>
+        <Rating rating={comment?.rating} />
+        <p>{comment?.content}</p>
+        {userId === posterId && (
+          <Button variant="danger" onClick={handleDestroy}>
+            Delete
+          </Button>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    destroyComment: (id) => dispatch(userDestroyComment(id))
-  }
-}
+    destroyComment: (id) => dispatch(userDestroyComment(id)),
+  };
+};
 
-export default connect(null, mapDispatchToProps)(Comment)
+export default connect(null, mapDispatchToProps)(Comment);

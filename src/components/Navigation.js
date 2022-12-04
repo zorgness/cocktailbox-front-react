@@ -30,7 +30,7 @@ const Navigation = ({ authData, logout, handleSearch }) => {
             {authData.isAuthenticated ? (
               <Fragment>
                 <Nav.Link href={`/favorites/${userId}`} className="mx-3">
-                  Favoris
+                  Favorites
                 </Nav.Link>
                 <Nav.Link className="mx-3" onClick={handleLogout}>
                   Logout

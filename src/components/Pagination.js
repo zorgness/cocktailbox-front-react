@@ -19,17 +19,19 @@ const PaginationItem = ({ page, currentPage, onPageChange }) => {
 const Pagination = ({ currentPage, total, limit, onPageChange }) => {
   const pagesCount = Math.ceil(total / limit);
   const pages = range(0, pagesCount);
-  return (
-    <ul className="pagination pagination-lg">
-      {pages.map((page) => (
-        <PaginationItem
-          page={page}
-          key={page}
-          currentPage={currentPage}
-          onPageChange={onPageChange}
-        />
-      ))}
-    </ul>
-  );
+  if (pagesCount > 1) {
+    return (
+      <ul className="pagination pagination-lg">
+        {pages.map((page) => (
+          <PaginationItem
+            page={page}
+            key={page}
+            currentPage={currentPage}
+            onPageChange={onPageChange}
+          />
+        ))}
+      </ul>
+    );
+  }
 };
 export default Pagination;
