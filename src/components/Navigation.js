@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Search from "./Search";
 import { notify } from "./../utils/notify";
+import lookup from "../images/icons/lookup.png";
 
 const Navigation = ({ authData, logout, handleSearch }) => {
   const handleLogout = () => {
@@ -18,7 +19,13 @@ const Navigation = ({ authData, logout, handleSearch }) => {
     <Navbar className="navbar-custom py-3" expand="lg" sticky="top">
       <Container fluid>
         <Navbar.Brand href="/">CocktailBox</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Toggle
+          aria-controls="navbarScroll"
+          className="text-white"
+          style={{ border: "2px solid #fa7c30" }}
+        >
+          <img src={lookup} style={{ width: "32px" }} alt="" />
+        </Navbar.Toggle>
       </Container>
 
       <Container>
