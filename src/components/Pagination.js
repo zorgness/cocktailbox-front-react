@@ -20,7 +20,7 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
   const pagesCount = Math.ceil(total / limit);
   const pages = range(0, pagesCount);
   return (
-    <ul className="pagination">
+    <ul className="pagination pagination-lg">
       {pages.map((page) => (
         <PaginationItem
           page={page}

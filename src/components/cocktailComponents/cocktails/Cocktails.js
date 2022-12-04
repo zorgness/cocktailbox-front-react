@@ -42,12 +42,14 @@ const Cocktails = ({ cocktails }) => {
         })}
       </div>
 
-      <Pagination
-        currentPage={currentPage}
-        total={cocktails?.length}
-        limit={5}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      <div className="d-flex justify-content-center">
+        <Pagination
+          currentPage={currentPage}
+          total={cocktails?.length}
+          limit={5}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </div>
     </div>
   );
 };
