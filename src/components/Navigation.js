@@ -15,7 +15,7 @@ const Navigation = ({ authData, logout, handleSearch }) => {
   const userId = localStorage.getItem("userId");
 
   return (
-    <Navbar className="navbar-custom" expand="lg">
+    <Navbar className="navbar-custom py-3" expand="lg" sticky="top">
       <Container fluid>
         <Navbar.Brand href="/">CocktailBox</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

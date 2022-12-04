@@ -1,5 +1,6 @@
 import React from "react";
 import Popular from "../components/Popular";
+import HomeContent from "./HomeContent";
 
 const HomePage = () => {
   return (
@@ -34,6 +35,10 @@ const HomePage = () => {
           <h4 className="text-center my-3">
             Here are all the great cocktail recipes and alcoholic drinks
           </h4>
+
+          {/* <div className="d-flex justify-content-center">
+            <HomeContent />
+          </div> */}
 
           <Popular />
         </div>

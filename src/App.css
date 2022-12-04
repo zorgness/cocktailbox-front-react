@@ -1,8 +1,12 @@
-@import url('./styles/avatar.css');
-@import url('./styles/comment.css');
-@import url('./styles/rating.css');
-@import url('./styles/card.css');
-@import url('./styles/popular.css');
+@import url("./styles/avatar.css");
+@import url("./styles/comment.css");
+@import url("./styles/rating.css");
+@import url("./styles/card.css");
+@import url("./styles/popular.css");
+@import url("./styles/button.css");
+@import url("./styles/navbar.css");
+@import url("./styles/home.css");
+@import url("./styles/pagination.css");
 
 .App {
   text-align: center;
@@ -41,17 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.btn-primary {
-  background: hotpink !important;
-  border: 1px solid hotpink!important;
-}
-
-.btn-primary:hover {
-  border: 1px solid white !important;
-}
-
-.btn-warning {
-  background: #fa7c30 !important;
 }
