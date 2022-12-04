@@ -14,8 +14,6 @@ const Cocktails = ({ cocktails }) => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const [indexItems, setIndexItems] = React.useState(0);
 
-  console.log(currentPage);
-
   React.useEffect(() => {
     setIndexItems(currentPage * 5);
     setToDisplay(cocktails.slice(indexItems, indexItems + 5));
@@ -30,6 +28,14 @@ const Cocktails = ({ cocktails }) => {
 
   return (
     <div>
+      <div className="d-flex justify-content-center mt-3">
+        <Pagination
+          currentPage={currentPage}
+          total={cocktails?.length}
+          limit={5}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </div>
       <div className="d-flex justify-content-around flex-wrap gap-5 m-5">
         {toDisplay.map((cocktail) => {
           return (
