@@ -10,3 +10,16 @@
 .btn-warning {
   background: #fa7c30 !important;
 }
+
+.filter-button {
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid goldenrod;
+  background-color: goldenrod;
+  color: white;
+}
+
+.filter-button:hover {
+  background-color: white;
+  color: black;
+}

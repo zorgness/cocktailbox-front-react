@@ -1,144 +1,157 @@
-import * as React from 'react'
-import { dataReducer } from '../reducers/dataReducer'
-import { fetchDataByName, fetchDataById, fetchDataByIngredient } from '../../api/fetchCocktailData'
-import { fetchDataWithMethod } from '../../api/fetchDataWithMethod'
-import { fetchData } from '../../api/fetchData'
-import { fetchLikesByUserId, fetchNumberOfLikesForDrink } from '../../api/fetchLikesData'
+import * as React from "react";
+import { dataReducer } from "../reducers/dataReducer";
+import {
+  fetchDataByName,
+  fetchDataById,
+  fetchDataByIngredient,
+  fetchDataFilter,
+} from "../../api/fetchCocktailData";
+import { fetchDataWithMethod } from "../../api/fetchDataWithMethod";
+import { fetchData } from "../../api/fetchData";
+import {
+  fetchLikesByUserId,
+  fetchNumberOfLikesForDrink,
+} from "../../api/fetchLikesData";
 
 const useFetchData = () => {
-
   const initialState = {
     data: null,
     error: null,
-    status: 'idle',
-  }
+    status: "idle",
+  };
 
-  const [state, dispatch] = React.useReducer(dataReducer, initialState )
+  const [state, dispatch] = React.useReducer(dataReducer, initialState);
 
-  const {data, error, status} = state
+  const { data, error, status } = state;
 
-  const execute = React.useCallback(promise => {
-    dispatch({type: 'fetching'})
+  const execute = React.useCallback((promise) => {
+    dispatch({ type: "fetching" });
     promise
-      .then(data => dispatch({type: 'done', payload: data}))
-      .catch(error => dispatch({type: 'fail', error}))
+      .then((data) => dispatch({ type: "done", payload: data }))
+      .catch((error) => dispatch({ type: "fail", error }));
+  }, []);
 
-  }, [])
-
-  return {data, error, status, execute}
-}
+  return { data, error, status, execute };
+};
 
 export const useFindCocktailByName = (name) => {
-  const {data, error, status, execute} = useFetchData()
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!name) {
-      return
+    if (!name) {
+      return;
     }
-     execute(fetchDataByName(name))
-  }, [name,execute])
+    execute(fetchDataByName(name));
+  }, [name, execute]);
 
-  return {data, error, status}
-}
+  return { data, error, status };
+};
+
+export const useFindCocktailByFilter = (filter) => {
+  const { data, error, status, execute } = useFetchData();
+  React.useEffect(() => {
+    if (!filter) {
+      return;
+    }
+    execute(fetchDataFilter(filter));
+  }, [filter, execute]);
+
+  return { data, error, status };
+};
 
 export const useFindCocktailById = (id) => {
-  const {data, error, status, execute} = useFetchData()
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!id) {
-      return
+    if (!id) {
+      return;
     }
-     execute(fetchDataById(id))
-  }, [id,execute])
+    execute(fetchDataById(id));
+  }, [id, execute]);
 
-  return {data, error, status}
-}
+  return { data, error, status };
+};
 
-export const useFindCocktailByIngredient= (ingredient) => {
-  const {data, error, status, execute} = useFetchData()
+export const useFindCocktailByIngredient = (ingredient) => {
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!ingredient) {
-      return
+    if (!ingredient) {
+      return;
     }
-     execute(fetchDataByIngredient(ingredient))
-  }, [ingredient,execute])
+    execute(fetchDataByIngredient(ingredient));
+  }, [ingredient, execute]);
 
-  return {data, error, status}
-}
+  return { data, error, status };
+};
 
 export const useLikeCocktail = (userId, idDrink) => {
-  const {data, error, status, execute} = useFetchData()
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!userId && !idDrink) {
-      return
+    if (!userId && !idDrink) {
+      return;
     }
-    const urlMain = process.env.REACT_APP_URL_MAIN
-    const options = {account: `/api/users/${userId}`, idDrink: idDrink}
-    execute(fetchDataWithMethod(urlMain + '/api/likes', 'POST', options))
-  }, [userId, idDrink, execute])
+    const urlMain = process.env.REACT_APP_URL_MAIN;
+    const options = { account: `/api/users/${userId}`, idDrink: idDrink };
+    execute(fetchDataWithMethod(urlMain + "/api/likes", "POST", options));
+  }, [userId, idDrink, execute]);
 
-  return {data, error, status}
+  return { data, error, status };
+};
 
-}
-
-export const ErrorDisplay = ({error}) => {
+export const ErrorDisplay = ({ error }) => {
   return (
-    <div style={{color: 'red'}} className="container">
-      Une erreur est survenue lors de la recherche du Cocktail detail :{' '}
-      <pre style={{color: 'grey'}}> Détail : {error.message}</pre>
+    <div style={{ color: "red" }} className="container">
+      Une erreur est survenue lors de la recherche du Cocktail detail :{" "}
+      <pre style={{ color: "grey" }}> Détail : {error.message}</pre>
     </div>
-  )
-}
+  );
+};
 
 export const useFindUserLikes = (userId) => {
-  const {data, error, status, execute} = useFetchData()
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!userId) {
-      return
+    if (!userId) {
+      return;
     }
-    execute(fetchLikesByUserId(userId))
-  }, [userId, execute])
+    execute(fetchLikesByUserId(userId));
+  }, [userId, execute]);
 
-  return {data, error, status}
-}
+  return { data, error, status };
+};
 
-
-export const useCommentsByCocktailId = idDrink => {
-  const {data, error, status, execute} = useFetchData()
+export const useCommentsByCocktailId = (idDrink) => {
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!idDrink) {
-      return
+    if (!idDrink) {
+      return;
     }
-    const urlMain = process.env.REACT_APP_URL_MAIN
-    execute(fetchData(urlMain + "/api/comments?idDrink=" + idDrink))
-  }, [idDrink, execute])
+    const urlMain = process.env.REACT_APP_URL_MAIN;
+    execute(fetchData(urlMain + "/api/comments?idDrink=" + idDrink));
+  }, [idDrink, execute]);
 
-  return {data, error, status}
+  return { data, error, status };
+};
 
-}
-
-
-export const useFindCommentOwner = userId => {
-  const {data, error, status, execute} = useFetchData()
+export const useFindCommentOwner = (userId) => {
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!userId) {
-      return
+    if (!userId) {
+      return;
     }
-    const urlMain = process.env.REACT_APP_URL_MAIN
-    execute(fetchData(urlMain + userId))
-  }, [userId, execute])
+    const urlMain = process.env.REACT_APP_URL_MAIN;
+    execute(fetchData(urlMain + userId));
+  }, [userId, execute]);
 
-  return {data, error, status}
-}
+  return { data, error, status };
+};
 
-export const useFindNumberOfLikes = idDrink => {
-  const {data, error, status, execute} = useFetchData()
+export const useFindNumberOfLikes = (idDrink) => {
+  const { data, error, status, execute } = useFetchData();
   React.useEffect(() => {
-    if(!idDrink) {
-      return
+    if (!idDrink) {
+      return;
     }
 
-    execute(fetchNumberOfLikesForDrink(idDrink))
-  }, [idDrink, execute])
+    execute(fetchNumberOfLikesForDrink(idDrink));
+  }, [idDrink, execute]);
 
-  return {data, error, status}
-
-}
+  return { data, error, status };
+};

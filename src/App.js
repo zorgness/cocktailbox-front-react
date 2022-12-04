@@ -22,10 +22,16 @@ import { ToastContainer } from "react-toastify";
 
 function App({ authData, logout, setId, fetchProfile }) {
   const [name, setName] = useState("");
+  const [filter, setFilter] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (name) => {
     setName(name);
+    navigate("/");
+  };
+
+  const handleFilter = (filter) => {
+    setFilter(filter);
     navigate("/");
   };
 
@@ -50,7 +56,13 @@ function App({ authData, logout, setId, fetchProfile }) {
         <Route
           path="/"
           element={
-            <Home name={name} handleSearch={handleSearch} authData={authData} />
+            <Home
+              name={name}
+              filter={filter}
+              handleSearch={handleSearch}
+              handleFilter={handleFilter}
+              authData={authData}
+            />
           }
         />
 

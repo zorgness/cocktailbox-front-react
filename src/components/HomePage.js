@@ -1,6 +1,6 @@
 import React from "react";
 import Popular from "../components/Popular";
-import HomeContent from "./HomeContent";
+import Filter from "./Filter";
 
 const HomePage = () => {
   return (
@@ -16,7 +16,7 @@ const HomePage = () => {
         </h1>
       </div>
 
-      <div className="d-flex justify-content-around align-items-center flex-wrap my-5 gap-4">
+      {/* <div className="d-flex justify-content-around align-items-center flex-wrap my-5 gap-4">
         <h1 className="text-center mx-3 d-flex align-items-center">
           {" "}
           <span>
@@ -28,17 +28,11 @@ const HomePage = () => {
             />
           </span>
         </h1>
-      </div>
+      </div> */}
 
       <div>
-        <div className="d-flex flex-column ">
-          <h4 className="text-center my-3">
-            Here are all the great cocktail recipes and alcoholic drinks
-          </h4>
-
-          {/* <div className="d-flex justify-content-center">
-            <HomeContent />
-          </div> */}
+        <div className="d-flex flex-column mt-5">
+          <Filter />
 
           <Popular />
         </div>

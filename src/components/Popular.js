@@ -4,7 +4,7 @@ import { populars } from "../data/popular";
 import { SearchContext } from "../SearchContext";
 
 const Popular = () => {
-  const handleSearch = useContext(SearchContext);
+  const { handleSearch } = useContext(SearchContext);
 
   const handleClick = (e) => {
     handleSearch(e.target.name);
