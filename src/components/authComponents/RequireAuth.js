@@ -1,13 +1,14 @@
-import {useLocation, Navigate, Outlet} from 'react-router-dom'
+import { useLocation, Navigate, Outlet } from "react-router-dom";
 
 const RequireAuth = () => {
+  const token = localStorage.getItem("jwtToken");
+  const location = useLocation();
 
-  const token = localStorage.getItem('jwtToken')
-  const location = useLocation()
+  return token ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" state={{ from: location }} replace />
+  );
+};
 
-  return (
-    token ? <Outlet /> : <Navigate to="/login" state={{ from: location}} replace />
-  )
-}
-
-export default RequireAuth
+export default RequireAuth;
