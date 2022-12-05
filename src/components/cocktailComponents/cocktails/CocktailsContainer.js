@@ -7,25 +7,20 @@ import Cocktails from "./Cocktails";
 import HomePage from "../../HomePage";
 import { connect } from "react-redux";
 import Loader from "../../Loader";
-import FilterResultsContainer from "../../FilterResultsContainer";
 
 const CocktailsContainer = ({ name, authData, filter }) => {
   const state = useFindCocktailByName(name);
-
-  console.log(filter);
 
   const { data, error, status } = state;
 
   if (status === "fail") {
     return <ErrorDisplay error={error} />;
-  } else if (status === "idle" && filter === undefined) {
-    return <HomePage authData={authData} />;
+  } else if (status === "idle") {
+    return <HomePage authData={authData} filter={filter} />;
   } else if (status === "fetching") {
     return <Loader />;
   } else if (status === "done") {
     return <Cocktails cocktails={data} />;
-  } else if (status === "idle" && filter !== undefined) {
-    return <FilterResultsContainer filter={filter} />;
   }
 };
 

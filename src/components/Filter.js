@@ -5,8 +5,7 @@ const Filter = () => {
   const { handleFilter } = useContext(SearchContext);
 
   const handleClick = (e) => {
-    // handleFilter(e.target.name);
-    console.log(e.target.name);
+    handleFilter(e.target.name);
   };
   return (
     <div className="d-flex justify-content-around flex-wrap gap-3">

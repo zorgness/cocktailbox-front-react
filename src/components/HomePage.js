@@ -1,8 +1,9 @@
 import React from "react";
 import Popular from "../components/Popular";
 import Filter from "./Filter";
+import FilterResultsContainer from "./FilterResultsContainer";
 
-const HomePage = () => {
+const HomePage = ({ filter }) => {
   return (
     <div>
       <div
@@ -33,8 +34,7 @@ const HomePage = () => {
       <div>
         <div className="d-flex flex-column mt-5">
           <Filter />
-
-          <Popular />
+          {filter ? <FilterResultsContainer filter={filter} /> : <Popular />}
         </div>
       </div>
     </div>
