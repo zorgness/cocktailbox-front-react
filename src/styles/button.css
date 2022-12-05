@@ -13,13 +13,14 @@
 
 .filter-button {
   width: 200px;
+  height: 36px;
   border-radius: 20px;
-  border: 1px solid goldenrod;
-  background-color: goldenrod;
-  color: white;
+  border: 2px solid goldenrod;
+  background-color: white;
+  color: black;
 }
 
 .filter-button:hover {
-  background-color: white;
-  color: black;
+  background-color: goldenrod;
+  color: white;
 }

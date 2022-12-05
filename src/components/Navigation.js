@@ -18,7 +18,7 @@ const Navigation = ({ authData, logout, handleSearch }) => {
   return (
     <Navbar className="navbar-custom py-3" expand="lg" sticky="top">
       <Container fluid>
-        <Navbar.Brand href="/" className="d-flex align-items-baseline">
+        <Navbar.Brand href="/" className="d-flex align-items-baseline mx-2">
           <img
             src="https://cdn-icons-png.flaticon.com/512/905/905477.png"
             alt=""

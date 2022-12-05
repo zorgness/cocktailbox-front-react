@@ -8,7 +8,7 @@ const Filter = () => {
     handleFilter(e.target.name);
   };
   return (
-    <div className="d-flex justify-content-around flex-wrap gap-3">
+    <div className="d-flex justify-content-around flex-wrap gap-3 mb-3">
       <div className="div">
         <button
           className="filter-button alcoholic"

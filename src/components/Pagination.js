@@ -23,13 +23,19 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
   const paginationCount = Math.ceil(pagesCount / (pagesCount / 3));
   const pages = range(indexPagination, paginationCount);
 
+  console.log(pagesCount);
+
   const handlePrev = () => {
-    setIndexPagination(indexPagination - 1);
-    onPageChange(currentPage - 1);
+    if (currentPage > 2) {
+      setIndexPagination(indexPagination - 1);
+      onPageChange(currentPage - 1);
+    }
   };
   const handleNext = () => {
-    setIndexPagination(indexPagination + 1);
-    onPageChange(currentPage + 1);
+    if (currentPage < pagesCount - 1) {
+      setIndexPagination(indexPagination + 1);
+      onPageChange(currentPage + 1);
+    }
   };
 
   if (pagesCount > 1) {
