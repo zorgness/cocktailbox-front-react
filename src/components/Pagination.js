@@ -64,7 +64,7 @@ const Pagination = ({
     );
   }
 
-  if (pagesCount > 1) {
+  if (pages.length > 3) {
     return (
       <ul className="pagination">
         <li className="page-item">
@@ -94,7 +94,7 @@ const Pagination = ({
           }
         })}
 
-        {pagesCount > 3 ? (
+        {pages.length > 3 ? (
           <>
             {pageIncrementBtn}
             <li className="page-item">
