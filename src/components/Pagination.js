@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import React from "react";
 
 const range = (start, end) => {
   return [...Array(end).keys()].map((el) => el + start);
@@ -18,10 +19,29 @@ const PaginationItem = ({ page, currentPage, onPageChange }) => {
 
 const Pagination = ({ currentPage, total, limit, onPageChange }) => {
   const pagesCount = Math.ceil(total / limit);
-  const pages = range(0, pagesCount);
+  const [indexPagination, setIndexPagination] = React.useState(0);
+  const paginationCount = Math.ceil(pagesCount / (pagesCount / 3));
+  const pages = range(indexPagination, paginationCount);
+
+  const handlePrev = () => {
+    setIndexPagination(indexPagination - 1);
+    onPageChange(currentPage - 1);
+  };
+  const handleNext = () => {
+    setIndexPagination(indexPagination + 1);
+    onPageChange(currentPage + 1);
+  };
+
   if (pagesCount > 1) {
     return (
       <ul className="pagination pagination-lg">
+        {pagesCount > 3 ? (
+          <li className="page-item">
+            <span className="page-link" aria-hidden="true" onClick={handlePrev}>
+              &laquo;
+            </span>
+          </li>
+        ) : null}
         {pages.map((page) => (
           <PaginationItem
             page={page}
@@ -30,6 +50,13 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
             onPageChange={onPageChange}
           />
         ))}
+        {pagesCount > 3 ? (
+          <li className="page-item">
+            <span className="page-link" aria-hidden="true" onClick={handleNext}>
+              &raquo;
+            </span>
+          </li>
+        ) : null}
       </ul>
     );
   }

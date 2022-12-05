@@ -17,20 +17,6 @@ const HomePage = ({ filter }) => {
         </h1>
       </div>
 
-      {/* <div className="d-flex justify-content-around align-items-center flex-wrap my-5 gap-4">
-        <h1 className="text-center mx-3 d-flex align-items-center">
-          {" "}
-          <span>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/905/905477.png"
-              alt=""
-              className="avatar-square2"
-              style={{ opacity: "0.8" }}
-            />
-          </span>
-        </h1>
-      </div> */}
-
       <div>
         <div className="d-flex flex-column mt-5">
           <Filter />
