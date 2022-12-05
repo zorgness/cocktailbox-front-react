@@ -34,7 +34,6 @@ const Cocktails = ({ cocktails }) => {
           dataLength={cocktails.length}
           currentPage={currentPage}
           total={cocktails?.length}
-          indexOfFirstItem={indexOfFirstItem}
           limit={itemsPerPage}
           onPageChange={(page) => setCurrentPage(page)}
         />
@@ -49,16 +48,6 @@ const Cocktails = ({ cocktails }) => {
             />
           );
         })}
-      </div>
-
-      <div className="d-flex justify-content-center">
-        {/* <Pagination
-          currentPage={currentPage}
-          total={cocktails?.length}
-          indexOfFirstItem={indexOfFirstItem}
-          limit={itemsPerPage}
-          onPageChange={(page) => setCurrentPage(page)}
-        /> */}
       </div>
     </div>
   );
