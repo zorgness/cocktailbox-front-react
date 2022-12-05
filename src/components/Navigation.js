@@ -18,7 +18,15 @@ const Navigation = ({ authData, logout, handleSearch }) => {
   return (
     <Navbar className="navbar-custom py-3" expand="lg" sticky="top">
       <Container fluid>
-        <Navbar.Brand href="/">CocktailBox</Navbar.Brand>
+        <Navbar.Brand href="/" className="d-flex align-items-baseline">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/905/905477.png"
+            alt=""
+            className="avatar-square2"
+            style={{ opacity: "0.8" }}
+          />
+          <span>CocktailBox</span>
+        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="navbarScroll"
           className="text-white"
