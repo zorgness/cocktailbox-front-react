@@ -13,11 +13,14 @@ const Cocktails = ({ cocktails }) => {
   const [toDisplay, setToDisplay] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(0);
   const [indexItems, setIndexItems] = React.useState(0);
+  const itemsPerPage = 5;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
   React.useEffect(() => {
-    setIndexItems(currentPage * 5);
-    setToDisplay(cocktails.slice(indexItems, indexItems + 5));
-  }, [cocktails, indexItems, currentPage]);
+    // setIndexItems(currentPage * 5);
+    setToDisplay(cocktails.slice(indexOfFirstItem, indexOfLastItem));
+  }, [cocktails, indexOfFirstItem, indexOfLastItem]);
 
   const findCardIsLikedByUser = (id) => {
     const tmp = data?.filter(({ idDrink }) => {
@@ -28,14 +31,14 @@ const Cocktails = ({ cocktails }) => {
 
   return (
     <div>
-      <div className="d-flex justify-content-center mt-3">
+      {/* <div className="d-flex justify-content-center mt-3">
         <Pagination
           currentPage={currentPage}
           total={cocktails?.length}
-          limit={5}
+          limit={itemsPerPage}
           onPageChange={(page) => setCurrentPage(page)}
         />
-      </div>
+      </div> */}
       <div className="d-flex justify-content-around flex-wrap gap-5 m-5">
         {toDisplay.map((cocktail) => {
           return (
@@ -48,14 +51,14 @@ const Cocktails = ({ cocktails }) => {
         })}
       </div>
 
-      <div className="d-flex justify-content-center">
+      {/* <div className="d-flex justify-content-center">
         <Pagination
           currentPage={currentPage}
           total={cocktails?.length}
-          limit={5}
+          limit={itemsPerPage}
           onPageChange={(page) => setCurrentPage(page)}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
