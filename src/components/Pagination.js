@@ -17,19 +17,27 @@ const PaginationItem = ({ page, currentPage, onPageChange }) => {
   );
 };
 
-const Pagination = ({ currentPage, total, limit, onPageChange }) => {
+const Pagination = ({
+  currentPage,
+  total,
+  limit,
+  indexOfFirstItem,
+  onPageChange,
+  dataLength,
+}) => {
   const pagesCount = Math.ceil(total / limit);
-  const [indexPagination, setIndexPagination] = React.useState(0);
-  const paginationToDisplay = Math.ceil(pagesCount / (pagesCount / 3));
-  const pages = range(indexPagination, paginationToDisplay);
+  // const [indexPagination, setIndexPagination] = React.useState(0);
+  // const paginationToDisplay = Math.ceil(pagesCount / (pagesCount / 3));
+  // const pages = range(indexOfFirstItem, pagesCount);
+  const pages = [];
+  for (let i = 1; i <= Math.ceil(dataLength / 5); i++) {
+    pages.push(i);
+  }
   const [maxPageNumberLimit, setmaxPageNumberLimit] = React.useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = React.useState(0);
 
-  console.log(pagesCount);
-
   const handlePrevbtn = () => {
     onPageChange(currentPage - 1);
-
     if ((currentPage - 1) % limit === 0) {
       setmaxPageNumberLimit(maxPageNumberLimit - limit);
       setminPageNumberLimit(minPageNumberLimit - limit);
@@ -38,7 +46,6 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
 
   const handleNextbtn = () => {
     onPageChange(currentPage + 1);
-
     if (currentPage + 1 > maxPageNumberLimit) {
       setmaxPageNumberLimit(maxPageNumberLimit + limit);
       setminPageNumberLimit(minPageNumberLimit + limit);
@@ -47,18 +54,28 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
 
   let pageDecrementBtn = null;
   if (minPageNumberLimit >= 1) {
-    pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>;
+    pageDecrementBtn = (
+      <li className="page-link" onClick={handlePrevbtn}>
+        {" "}
+        &hellip;{" "}
+      </li>
+    );
   }
 
   let pageIncrementBtn = null;
   if (pages.length > maxPageNumberLimit) {
-    pageIncrementBtn = <li onClick={handleNextbtn}> &hellip; </li>;
+    pageIncrementBtn = (
+      <li className="page-link" onClick={handleNextbtn}>
+        {" "}
+        &hellip;{" "}
+      </li>
+    );
   }
 
   if (pagesCount > 1) {
     return (
       <ul className="pagination pagination-lg">
-        {pagesCount > 3 ? (
+        <>
           <li className="page-item">
             <span
               className="page-link"
@@ -69,7 +86,8 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
               &laquo;
             </span>
           </li>
-        ) : null}
+          {pageDecrementBtn}
+        </>
 
         {pages.map((page) => (
           <PaginationItem
@@ -81,16 +99,21 @@ const Pagination = ({ currentPage, total, limit, onPageChange }) => {
         ))}
 
         {pagesCount > 3 ? (
-          <li className="page-item">
-            <span
-              className="page-link"
-              aria-hidden="true"
-              onClick={handleNextbtn}
-              disabled={currentPage === pages[pages.length - 1] ? true : false}
-            >
-              &raquo;
-            </span>
-          </li>
+          <>
+            {pageIncrementBtn}
+            <li className="page-item">
+              <span
+                className="page-link"
+                aria-hidden="true"
+                onClick={handleNextbtn}
+                disabled={
+                  currentPage === pages[pages.length - 1] ? true : false
+                }
+              >
+                &raquo;
+              </span>
+            </li>
+          </>
         ) : null}
       </ul>
     );
