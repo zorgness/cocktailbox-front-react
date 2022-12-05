@@ -1,10 +1,6 @@
 import classNames from "classnames";
 import React from "react";
 
-const range = (start, end) => {
-  return [...Array(end).keys()].map((el) => el + start);
-};
-
 const PaginationItem = ({ page, currentPage, onPageChange }) => {
   const liClasses = classNames({
     "page-item": true,
@@ -26,9 +22,6 @@ const Pagination = ({
   dataLength,
 }) => {
   const pagesCount = Math.ceil(total / limit);
-  // const [indexPagination, setIndexPagination] = React.useState(0);
-  // const paginationToDisplay = Math.ceil(pagesCount / (pagesCount / 3));
-  // const pages = range(indexOfFirstItem, pagesCount);
   const pages = [];
   for (let i = 1; i <= Math.ceil(dataLength / 5); i++) {
     pages.push(i);
@@ -52,41 +45,41 @@ const Pagination = ({
     }
   };
 
-  let pageDecrementBtn = null;
-  if (minPageNumberLimit >= 1) {
-    pageDecrementBtn = (
-      <li className="page-link" onClick={handlePrevbtn}>
-        {" "}
-        &hellip;{" "}
-      </li>
-    );
-  }
+  // let pageDecrementBtn = null;
+  // if (minPageNumberLimit >= 1) {
+  //   pageDecrementBtn = (
+  //     <li className="page-link" onClick={handlePrevbtn}>
+  //       {" "}
+  //       &hellip;{" "}
+  //     </li>
+  //   );
+  // }
 
-  let pageIncrementBtn = null;
-  if (pages.length > maxPageNumberLimit) {
-    pageIncrementBtn = (
-      <li className="page-link" onClick={handleNextbtn}>
-        {" "}
-        &hellip;{" "}
-      </li>
-    );
-  }
+  // let pageIncrementBtn = null;
+  // if (pages.length > maxPageNumberLimit) {
+  //   pageIncrementBtn = (
+  //     <li className="page-link" onClick={handleNextbtn}>
+  //       {" "}
+  //       &hellip;{" "}
+  //     </li>
+  //   );
+  // }
 
   if (pagesCount > 1) {
     return (
       <ul className="pagination pagination-lg">
         <>
           <li className="page-item">
-            <span
+            <button
               className="page-link"
               aria-hidden="true"
               onClick={handlePrevbtn}
-              disabled={currentPage === pages[0] ? true : false}
+              disabled={currentPage === pages[0]}
             >
               &laquo;
-            </span>
+            </button>
           </li>
-          {pageDecrementBtn}
+          {/* {pageDecrementBtn} */}
         </>
 
         {pages.map((page) => (
@@ -100,9 +93,9 @@ const Pagination = ({
 
         {pagesCount > 3 ? (
           <>
-            {pageIncrementBtn}
+            {/* {pageIncrementBtn} */}
             <li className="page-item">
-              <span
+              <button
                 className="page-link"
                 aria-hidden="true"
                 onClick={handleNextbtn}
@@ -111,7 +104,7 @@ const Pagination = ({
                 }
               >
                 &raquo;
-              </span>
+              </button>
             </li>
           </>
         ) : null}
