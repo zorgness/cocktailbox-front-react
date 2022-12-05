@@ -4,7 +4,7 @@ import { SearchContext } from "../SearchContext";
 
 const Home = ({ name, filter, authData, handleSearch, handleFilter }) => {
   return (
-    <div>
+    <div id="cocktailbox">
       <SearchContext.Provider value={{ handleSearch, handleFilter }}>
         <CocktailsContainer name={name} authData={authData} filter={filter} />
       </SearchContext.Provider>

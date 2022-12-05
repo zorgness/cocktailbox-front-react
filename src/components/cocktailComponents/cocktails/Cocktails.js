@@ -28,16 +28,7 @@ const Cocktails = ({ cocktails }) => {
   };
 
   return (
-    <div>
-      <div className="d-flex justify-content-center mt-3">
-        <Pagination
-          dataLength={cocktails.length}
-          currentPage={currentPage}
-          total={cocktails?.length}
-          limit={itemsPerPage}
-          onPageChange={(page) => setCurrentPage(page)}
-        />
-      </div>
+    <div id="cocktailbox">
       <div className="d-flex justify-content-around flex-wrap gap-5 m-5">
         {toDisplay.map((cocktail) => {
           return (
@@ -48,6 +39,16 @@ const Cocktails = ({ cocktails }) => {
             />
           );
         })}
+      </div>
+
+      <div className="d-flex justify-content-center mt-3">
+        <Pagination
+          dataLength={cocktails.length}
+          currentPage={currentPage}
+          total={cocktails?.length}
+          limit={itemsPerPage}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </div>
     </div>
   );

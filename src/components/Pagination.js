@@ -8,19 +8,14 @@ const PaginationItem = ({ page, currentPage, onPageChange }) => {
   });
   return (
     <li className={liClasses} onClick={() => onPageChange(page)}>
-      <span className="page-link">{page}</span>
+      <a href="/#cocktailbox">
+        <span className="page-link">{page}</span>
+      </a>
     </li>
   );
 };
 
-const Pagination = ({
-  currentPage,
-  total,
-  limit,
-  onPageChange,
-  dataLength,
-}) => {
-  const pagesCount = Math.ceil(total / limit);
+const Pagination = ({ currentPage, limit, onPageChange, dataLength }) => {
   const pages = [];
   for (let i = 1; i <= Math.ceil(dataLength / limit); i++) {
     pages.push(i);
