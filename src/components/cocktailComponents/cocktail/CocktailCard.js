@@ -14,7 +14,7 @@ const CocktailCard = ({ cocktail, isLiked }) => {
   } = cocktail;
 
   const imgStyles = {
-    backgroundImage: `linear-gradient(190deg, #fa7c30 20%, rgba(0, 0, 0, 0)20%), url(${strDrinkThumb})`,
+    backgroundImage: `linear-gradient(190deg, #fa7c30 22%, rgba(0, 0, 0, 0)10%), url(${strDrinkThumb})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "280px",
