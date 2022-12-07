@@ -10,7 +10,7 @@ const HomePage = ({ filter }) => {
       <div
         className="card-category"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.trucsdenana.com/wp-content/uploads/2017/06/cocktail-1.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?cocktails)`,
         }}
       >
         <h1 className="text-center mx-3 d-flex align-items-center">
@@ -19,6 +19,9 @@ const HomePage = ({ filter }) => {
       </div>
 
       <div>
+        <div className="text-center mt-4">
+          <h6>Find all the best cocktails and beverages</h6>
+        </div>
         <div className="d-flex flex-column mt-5">
           <Filter />
           {filter ? <FilterResultsContainer filter={filter} /> : <Popular />}
