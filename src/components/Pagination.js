@@ -44,7 +44,7 @@ const Pagination = ({ currentPage, limit, onPageChange, dataLength }) => {
     pageDecrementBtn = (
       <li className="page-link" onClick={handlePrevbtn}>
         {" "}
-        &hellip;{" "}
+        <a href="/#cocktailbox">&hellip;</a>{" "}
       </li>
     );
   }
@@ -54,7 +54,7 @@ const Pagination = ({ currentPage, limit, onPageChange, dataLength }) => {
     pageIncrementBtn = (
       <li className="page-link" onClick={handleNextbtn}>
         {" "}
-        &hellip;{" "}
+        <a href="/#cocktailbox">&hellip;</a>{" "}
       </li>
     );
   }

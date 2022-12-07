@@ -28,7 +28,6 @@ export const fetchDataByName = (name) => {
 };
 
 export const fetchDataFilter = (filter) => {
-  console.log(filter);
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?${filter}`;
   return fetch(url, init)
     .then((response) => response.json())

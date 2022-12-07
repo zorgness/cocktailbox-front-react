@@ -8,6 +8,13 @@
   color: #fa7c30 !important;
 }
 
+.page-item > a {
+  text-decoration: none !important;
+}
+.page-link > a {
+  text-decoration: none !important;
+}
+
 .page-link:hover {
   color: #fff !important;
   background: #fa7c30 !important;
