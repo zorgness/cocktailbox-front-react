@@ -2,6 +2,7 @@ import React from "react";
 import Popular from "../components/Popular";
 import Filter from "./Filter";
 import FilterResultsContainer from "./FilterResultsContainer";
+import Footer from "./Footer";
 
 const HomePage = ({ filter }) => {
   return (
@@ -23,6 +24,7 @@ const HomePage = ({ filter }) => {
           {filter ? <FilterResultsContainer filter={filter} /> : <Popular />}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

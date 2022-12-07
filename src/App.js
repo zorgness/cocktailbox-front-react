@@ -18,7 +18,6 @@ import RegisterContainer from "./components/authComponents/RegisterContainer";
 import RequireAuth from "./components/authComponents/RequireAuth";
 import FavoritesContainer from "./components/favorites/FavoritesContainer";
 import CocktailContainer from "./components/cocktailComponents/cocktail/CocktailContainer";
-import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 
 function App({ authData, logout, setId, fetchProfile }) {
@@ -78,7 +77,6 @@ function App({ authData, logout, setId, fetchProfile }) {
           <Route path="/favorites/:id" element={<FavoritesContainer />} />
         </Route>
       </Routes>
-      <Footer />
     </ScrollToTop>
   );
 }
