@@ -99,8 +99,7 @@ export const useLikeCocktail = (userId, idDrink) => {
 export const ErrorDisplay = ({ error }) => {
   return (
     <div style={{ color: "red" }} className="container">
-      Une erreur est survenue lors de la recherche du Cocktail detail :{" "}
-      <pre style={{ color: "grey" }}> Détail : {error.message}</pre>
+      Error on research <pre style={{ color: "grey" }}> {error.message}</pre>
     </div>
   );
 };

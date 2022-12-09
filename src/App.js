@@ -19,6 +19,7 @@ import RequireAuth from "./components/authComponents/RequireAuth";
 import FavoritesContainer from "./components/favorites/FavoritesContainer";
 import CocktailContainer from "./components/cocktailComponents/cocktail/CocktailContainer";
 import { ToastContainer } from "react-toastify";
+import ErrorPage from "./ErrorPage";
 
 function App({ authData, logout, setId, fetchProfile }) {
   const [name, setName] = useState("");
@@ -76,6 +77,8 @@ function App({ authData, logout, setId, fetchProfile }) {
         <Route element={<RequireAuth />}>
           <Route path="/favorites/:id" element={<FavoritesContainer />} />
         </Route>
+
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ScrollToTop>
   );
