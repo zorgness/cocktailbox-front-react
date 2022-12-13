@@ -7,7 +7,7 @@ https://cocktailbox-front.herokuapp.com/
 
 <img src="https://i.ibb.co/3mHQkr4/Capture-d-e-cran-2022-12-13-a-19-44-08-Large.jpg" alt="Capture-d-e-cran-2022-12-13-a-19-44-08-Large" border="0">
 
-<img src="https://i.ibb.co/8z0KWRh/Capture-d-e-cran-2022-12-13-a-19-44-53-Large.jpg" alt="Capture-d-e-cran-2022-12-13-a-19-44-53-Large" border="0">
+<img src="https://i.ibb.co/8z0KWRh/Capture-d-e-cran-2022-12-13-a-19-44-53-Large.jpg" alt="Capture-d-e-cran-2022-12-13-a-19-44-53-Large" border="0" width="200px">
 
 ## Available Scripts
 
