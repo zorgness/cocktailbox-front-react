@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 https://cocktailbox-front.herokuapp.com/
 
+
+<img src="https://i.ibb.co/3mHQkr4/Capture-d-e-cran-2022-12-13-a-19-44-08-Large.jpg" alt="Capture-d-e-cran-2022-12-13-a-19-44-08-Large" border="0">
+
 ## Available Scripts
 
 In the project directory, you can run:
