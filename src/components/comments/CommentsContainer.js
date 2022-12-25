@@ -10,12 +10,12 @@ import {
 const CommentsContainer = ({ comment, idDrink, name, getList, unloadList }) => {
   const { commentList } = comment;
 
+  console.log(commentList);
+
   useEffect(() => {
-    console.log("comment");
-    return () => {
-      getList(idDrink);
-      unloadList();
-    };
+    console.log(idDrink);
+    getList(idDrink);
+    unloadList();
   }, [idDrink, getList, unloadList]);
 
   return (
