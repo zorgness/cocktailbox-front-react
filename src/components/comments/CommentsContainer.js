@@ -11,6 +11,7 @@ const CommentsContainer = ({ comment, idDrink, name, getList, unloadList }) => {
   const { commentList } = comment;
 
   useEffect(() => {
+    console.log("comment");
     return () => {
       getList(idDrink);
       unloadList();
