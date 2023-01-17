@@ -83,7 +83,7 @@ const Login = ({ authData, auth, closeModal }) => {
           </Form.Group>
 
           <Form.Group className="text-center">
-            <Button className="btn btn-primary" type="submit">
+            <Button role="button" className="btn btn-primary" type="submit">
               Submit
             </Button>
           </Form.Group>
