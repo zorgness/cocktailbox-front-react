@@ -12,7 +12,9 @@ const Popular = () => {
 
   return (
     <div className="text-center m-5">
-      <h2 className="text-center p-5">Popular</h2>
+      <h2 className="text-center p-5 " data-testid="popular">
+        Popular
+      </h2>
 
       <Carousel variant="dark" indicators={false}>
         <Carousel.Item>
