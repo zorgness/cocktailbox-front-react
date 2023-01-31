@@ -12,11 +12,7 @@ import {
 import ScrollToTop from "./utils/ScrollToTop";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
-// import Login from "./components/authComponents/Login";
-// import RegisterContainer from "./components/authComponents/RegisterContainer";
 import RequireAuth from "./components/authComponents/RequireAuth";
-//import FavoritesContainer from "./components/favorites/FavoritesContainer";
-//import CocktailContainer from "./components/cocktailComponents/cocktail/CocktailContainer";
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "./ErrorPage";
 import Loader from "./components/Loader";
